@@ -11,6 +11,8 @@ export const ParticipantCard = (props) => {
           onChangeName(input.value)();
   }
 
+  let placeholder = name.length === 0 ? "Участник " + (participantId+1) : name;
+
   return (
       <li
           key       = { participantId }
@@ -18,8 +20,10 @@ export const ParticipantCard = (props) => {
       >
           <input
               id={"name"+index}
-              onChange={f}
-              placeholder={name}
+              // onChange={f}
+              onFocus={() => {placeholder = "";}}
+              onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
+              placeholder={placeholder}
               className = "ParticipantName"
           />
 

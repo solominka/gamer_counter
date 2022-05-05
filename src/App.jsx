@@ -8,12 +8,12 @@ import "./App.css";
 import { ParticipantList } from './pages/ParticipantList';
 
 
-const initializeAssistant = (getState/*: any*/) => {
+const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MTU2ODY0OSwiaWF0IjoxNjUxNDgyMjM5LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiYmUzMmYxOTQtMDQwZC00OGYxLWIxNzMtMWQ0YTAyZDcxMGIwIiwic2lkIjoiN2I5YWRjNWYtOTA1ZS00ZTk5LTgyYTItYThmZDM3OTk4MDlmIn0.WT4sr6G3DxYAldiywbeeQbIHQzADHK98x0k9tYxgbu9PfGr6YuKVn5ZtCxfDhgtt_LfVAsUJzZl2YD7cmoJ4D7N0KkY53D5l66-vIRvtFgy8R2IjM2JBdGVMN5tlcYPOsDGB0GNd90pWGZoKxzauhhf7sZeZI26pdDoTlU8HLW_MN94p8zkczJ2tkq3t6ZzGGCGoSd8pGxN76omZZ_s_bqMch8_EfcHEGZYRBLYjYRJR23sPifi0IgBxLw0t1kkgnLmPVinNeTKZbENxjugvMf4Mti5335Spq4I_rWD5fA57qamK4grDY5efkJC7k7445GSrj5LBZe8L4-LwXLvrTuUZdcDZJ_r675THznyFpDXUlwuQxTjH_09nmQCfdCQPV109TfuStDNsIeg1S8LlGsjfeRHhlOCpZP6FODSJivvHwa_MjMtwihN6T0BpJz8RbSk3TClh-mNcJXPVUi2l-IFNp0hsqf_Aj_n8oFgL-QCI5jTciK_mBU0AaFTZUcj6Yp60jo4a9jp4EgVJGEyINOtz7PnZkCAZd-LeYSMFb5LP6TxWPT9pzrtPzPDPd3n1UvnYA129dZgXCSVRwB2Ydwx0q1aOwiihZwKxTEhlWnyWqyKqil8GD22q2h_IIYj6R75rdJLW5NJ6jG_oMp5ieu39U2N6FLjakEINzrxszDk",
-      initPhrase: `Запусти счетчик очков`,
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MTg2MDY2OCwiaWF0IjoxNjUxNzc0MjU4LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiYjY3MzFjYzAtMWFmZC00YjVhLWIzZDQtMTE2ZjhjNmJkMDY3Iiwic2lkIjoiNzdiZjIwYzctNjZmNS00MjAwLThhNDYtMDE5YmMyMDk5MTk5In0.nAJdZ0C_dm2zsnfMwpMGIwnbcvQvvkmtrdXnN3-WGKQijRdZlqB1YOKTJ2dcZQWOVbg7CVVSw-N1rdM0xvePklr8K7lZa5WsTiW7j3vUbWITaAbGGYwlbg--5FxLu175tD7KH_Qa7xkQdag9MoDF8I3OQ66A0NG5sD9UZHfsfKIKI12A0EU6aFfcQ5ZcvSXfPp5mrJGG79Xxke1AtIXNycqansMBCezUmDlSF9dr0s24NhWz0VSn1Zqpob4m9JigCp-e64vrXgvRSFYM6DM0IDG0-3YJ3AHTe7b3xpyW1mf-zKXOsRyOVfwXsezl2F1iGghy45yFVkYEO0ASV3MKxE0s80JiztPEeICt3W13CP_oVP-UWh-wig-WPWJEBgEHkry-G1mYJPZTusrk4lHEFEpru6lWyv0lJbVakaVCsz8mln74v5b-9tA5cufduW7MuYmbrRgSq_6KLarpIYfMy2IE7ce4kFarR1y6arMY66CnIJXBPt-_1d0OkCAqnDMxeJ2aELtMfSM6EyDBtGiaFinxzyx_n8Gsv0IaN9CMTGAL1SbzQq7vD-eYvyi8ioIrIuHLQHkTzlF6vtqIAQ5xPtFL9H380BI0PdWBwqy9z0ui-_U0w0eZ4YNuxsoOsY4jZlnYSKvWDo_11gGMCAJkiWXJpo8T0ajsmTzEhJ-2Mzs",
+      initPhrase: `Запусти Счетчик очков`,
       getState,
     });
   }
@@ -52,7 +52,6 @@ export class App extends React.Component {
       item_selector: {
         items: this.state.participants.map(
           ({ id, name, score }, index) => ({
-            id,
             name,
           })
         ),
@@ -77,6 +76,7 @@ export class App extends React.Component {
         case 'subtract_points':
           return this.add_points(action, -1);
         default:
+          // TODO change this before deploy
           throw new Error();
       }
     }
@@ -144,6 +144,8 @@ export class App extends React.Component {
       let part = this.state.participants;
       return function (name) {
         return () => {
+          if (name === "")
+            name = "Участник " + (participant_id+1);
           let arr = part;
           arr.forEach(item => {
             if (item.id === participant_id)
@@ -156,6 +158,7 @@ export class App extends React.Component {
   }
 
   render() {
+    console.log('render, ', this.state);
     return (
       <ParticipantList
         items   = {this.state.participants}
@@ -169,14 +172,29 @@ export class App extends React.Component {
 }
 
 // фронтенд
-// ?UX TODO убирать плейсхолдер при фокусе
-// TODO сделать добавление игроков
+// TODO добавление игроков
 
 // Сценарии:
-// TODO добавить реплики с обратным порядком - добавь 6 баллов сергею
-// TODO выяснить как пользоваться assistantState
-// TODO добавить сообщения пользователю о неправильных запросах
+// Пользователь: «Включи виртуального баристу».
+// Ассистент: «Я виртуальный бариста. Могу рассказать как приготовить кофе. Чтобы узнать, скажите «Дальше». Чтобы выйти из навыка, скажите «Выход».
+// TODO смартап корректно отвечает на базовые вопросы: привет, что ты умеешь, помощь
+// TODO закрытие смартапа https://developers.sber.ru/docs/ru/va/how-to/start-stop/close-app
+// TODO изменение персонажа ассистента, и реплик в соответствии с персонажем
+// TODO жесты пользователя (свайп влево/вправо/вверх/вниз) https://developers.sber.ru/docs/ru/va/background/app-design/canvasapp/sberportal
+// TODO больше инструкций/подсказок пользователю
+
+// TODO 0 баллов, 1 балл, 2-4 балла, 5-9 баллов
+// TODO сообщения пользователю о неправильных запросах добавления по номеру
+// TODO добавление игроков
 
 // MORE
 // TODO сделать красивое поднятие имени игрока в рейтинге
-// TODO менять направление сортировки
+
+// Перед выкаткой
+// в описании написать про ограничение на число игроков (до 10)
+// TODO тестирование
+// TODO разобраться с полем Хостинг Canvas App (https://developers.sber.ru/docs/ru/va/how-to/publication/main-settings#%D1%85%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B3-canvas-app)
+// TODO скриншоты для описания
+
+// После публикации
+// можно получить сбербокс(?) https://developers.sber.ru/portal/virtual-assistants-salute/sberbox-smartapp
