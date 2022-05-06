@@ -84,7 +84,7 @@ export class ParticipantCardList extends React.Component {
     up.classList.add('transition');
     down.classList.add('transition');
     // TODO replace 134 for mobile
-    let x = window.innerWidth > 500 ? 134 : 93;
+    let x = window.innerWidth > 500 ? 134 : 97;
     console.log(up.getBoundingClientRect().left - down.getBoundingClientRect().left);
     finalChildAStyle.y = x + this.state.sum[up_id];
     finalChildBStyle.y = -x + this.state.sum[down_id];
