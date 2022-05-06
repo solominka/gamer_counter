@@ -3,6 +3,8 @@ import React from "react";
 import {ParticipantCard} from './ParticipantCard';
 import "../App.css";
 
+let x = 0;
+
 export class ParticipantCardList extends React.Component {
   constructor(props) {
     super(props);
@@ -84,10 +86,14 @@ export class ParticipantCardList extends React.Component {
     up.classList.add('transition');
     down.classList.add('transition');
     // TODO replace 134 for mobile
-    let x = window.innerWidth > 500 ? 134 : 97;
+
+    if (x === 0) {
+      x = up.getBoundingClientRect().top - down.getBoundingClientRect().top;
+      console.log(x);
+    }
     console.log(up.getBoundingClientRect().left - down.getBoundingClientRect().left);
-    finalChildAStyle.y = x + this.state.sum[up_id];
-    finalChildBStyle.y = -x + this.state.sum[down_id];
+    finalChildAStyle.y = -x + this.state.sum[up_id];
+    finalChildBStyle.y = x + this.state.sum[down_id];
     up.style.transform = `translateY(${finalChildAStyle.y}px)`;
     down.style.transform = `translateY(${finalChildBStyle.y}px)`;
 
