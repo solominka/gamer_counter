@@ -2,13 +2,19 @@ body {
   background-color: #292929;
 }
 
-.container {
+.containerBig {
   margin: 0 auto;
   max-width: 960px;
   padding: 0 48px;
 }
 
-.ParticipantCard, .ParticipantName, .plus_button, .minus_button {
+.containerSmall {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 10%;
+}
+
+.ParticipantCardBig, .ParticipantNameBig, .button, .minus_button_big {
   background-color: rgba(255, 255, 255, 0.24);
   padding: 16px 32px;
   font-weight: 500;
@@ -18,37 +24,46 @@ body {
   color: #ffffff;
 }
 
+.ParticipantCardSmall, .ParticipantNameSmall, .plus_button_small {
+  background-color: rgba(255, 255, 255, 0.24);
+  padding: 14px 8px;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 40px;
+  color: #ffffff;
+}
+
 .cards {
-  margin: 36px 0 144px;
+  margin: 3% 0 20%;
   padding: 0;
   list-style: none;
 }
 
-.ParticipantCard {
+.ParticipantCardBig, .ParticipantCardSmall {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 3%;
   border-radius: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.ParticipantName {
+.ParticipantCardSmall {
+  flex-direction: column;
+}
+
+.ParticipantNameBig, .ParticipantNameSmall {
   background-color: transparent;
   border: solid transparent 3px;
   border-radius: 24px;
 }
 
-.plus_button {
-  border: 0;
-  border-radius: 10px;
-  margin-left: 10px;
-
-  padding-left: 28px;
-  padding-right: 28px;
+.ParticipantNameSmall {
+  width: 190px;
 }
 
-.minus_button {
+.button {
   border: 0;
   border-radius: 10px;
   margin-left: 10px;
@@ -62,11 +77,18 @@ body {
   line-height: 40px;
 }
 
-.ParticipantName:focus {
+.ParticipantNameBig:focus {
   border: solid rgba(255, 255, 255, 0.24) 3px;
   outline: none;
 }
 
 .transition {
   transition: transform ease-in 0.5s;
+}
+
+.span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
 }

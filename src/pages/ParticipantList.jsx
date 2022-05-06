@@ -4,7 +4,7 @@ import {ParticipantCardList} from '../components/ParticipantCardList';
 export const ParticipantList = (props) => {
     const { items, lastUpdate, onClickPlus, onClickMinus, onChangeName } = props;
     return (
-        <main className="container">
+        <main className={window.innerWidth > 500 ? "containerBig" : "containerSmall"}>
             <ParticipantCardList
                 lastUpdate   = { lastUpdate }
                 items        = { items }

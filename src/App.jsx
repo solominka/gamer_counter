@@ -14,6 +14,7 @@ const initializeAssistant = (getState) => {
     return createSmartappDebugger({
       token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MTkwNjM4MSwiaWF0IjoxNjUxODE5OTcxLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNDkyNjYwZWUtOWY2Yy00YmQwLWJlMDMtNGE5ZWE3OGRlMjIyIiwic2lkIjoiZmEzM2Y4MjgtYTU2Mi00MDNmLTgyMGEtN2EzYjMyNmRjMDBmIn0.lL4DkfBszH7xjUP0_jq7V0QfUfmiHz59M7H0S8zfyHxoOZOunqgHJgFU1XGtALXuFe1G9aQHHzgr60Ukutmda46_NkoH7dMlNY3_CIao7wYCqwYgKYq4pRHkKjxRV38HZHkWaFiOub7cZfK0wnJb5sa2yV3zbqkKpybDvWPCOhIq5BBsST9A8-5VIuO16Ei3Xdha1eTH5-gtUfLYl-gLoG8W6jvQTPINHZH2cv7K6-q3d_sbPrDQiD0388UzLSOsIUmZ5wjpGkzcYr82gif7FBKQVlx4IAPDS7yRBtdp2oDQSDIrYPumCbEAJGC8TV1JGVHvekbEHRTKlmjTADjMHWUDMhPla4R9ukux2gkb3yqA050-QwWfLQE8sLwE2YPZK8rHC0ogfqv9RZjUtUWwsOrN6SKv16nN-dkhJWGGBnJHHRZe2Tr-rgJ2N2qm4KYgP2z25jx_aS_YGtDpLdP74XkJ8UUGpdyAye92t5gbSff49Mx7cCyR7MlrjF0FMO33XLzKJgQNhAI4InmTmA_kOjsR7z1P9BWb5J_VEWTVeYuoH2GGVLgHfiJYq8M9aB_tuulQ01L7VbI4siYjLkh9bZM-p0uVp5s31X7yaK7s76-K_tAnBJYyN6jKvYJqSVJGjHmGk6UDpzpxD-_QvwR0QjliEKotXoTiDxadfqjSztg",
       initPhrase: `Запусти счетчик очков`,
+      surface: "COMPANION",
       getState,
     });
   }
@@ -193,21 +194,16 @@ export class App extends React.Component {
 }
 
 // фронтенд
-// TODO добавление игроков
-// TODO сделать красивое поднятие имени игрока в рейтинге
 // TODO сделать размеры для смартфона
 
 // Сценарии:
 // Пользователь: «Включи виртуального баристу».
 // Ассистент: «Я виртуальный бариста. Могу рассказать как приготовить кофе. Чтобы узнать, скажите «Дальше». Чтобы выйти из навыка, скажите «Выход».
-// TODO смартап корректно отвечает на базовые вопросы: привет, что ты умеешь, помощь
+// TODO базовые вопросы: привет, что ты умеешь, помощь, захлопнись
 // TODO закрытие смартапа https://developers.sber.ru/docs/ru/va/how-to/start-stop/close-app
-// TODO изменение персонажа ассистента, и реплик в соответствии с персонажем
-// TODO жесты пользователя (свайп влево/вправо/вверх/вниз) https://developers.sber.ru/docs/ru/va/background/app-design/canvasapp/sberportal
-// TODO больше инструкций/подсказок пользователю
-
+// TODO подстраивать реплики под персонажа
+// TODO больше инфы на входе
 // TODO 0 баллов, 1 балл, 2-4 балла, 5-9 баллов
-// TODO добавление игроков
 
 // Перед выкаткой
 // TODO в описании написать про ограничение на число игроков (до 10)

@@ -35,12 +35,15 @@ export class ParticipantCardList extends React.Component {
       return;
     }
     console.log("last update", this.props.lastUpdate);
+    let curID = this.props.lastUpdate.id, curPlace = this.state.places[curID];
+    let {ids, places, sum} = this.state;
+
     if (this.props.lastUpdate.type === 1) {
-      let curID = this.props.lastUpdate.id, curPlace = this.state.places[curID];
+      if (curPlace === 0) return;
+
       let upperPlace = curPlace-1, upperID = this.state.ids[upperPlace];
-      if (curPlace > 0 && this.props.items[curID].score > this.props.items[upperID].score) {
+      if (this.props.items[curID].score > this.props.items[upperID].score) {
         this.swap(upperID, curID);
-        let {ids, places, sum} = this.state;
         ids[curPlace] = upperID; ids[upperPlace] = curID;
         places[curID] = upperPlace; places[upperID] = curPlace;
         this.setState({
@@ -48,16 +51,29 @@ export class ParticipantCardList extends React.Component {
           places: places,
           sum: sum,
         });
-        console.log("changed list state", this.state);
       }
     } else if (this.props.lastUpdate.type === -1) {
-      // todo
+      if (curPlace+1 >= this.state.ids.length) return;
+
+      let downPlace = curPlace+1, downID = this.state.ids[downPlace];
+      if (this.props.items[curID].score < this.props.items[downID].score) {
+        this.swap(curID, downID);
+        ids[curPlace] = downID;
+        ids[downPlace] = curID;
+        places[curID] = downPlace;
+        places[downID] = curPlace;
+        this.setState({
+          ids: ids,
+          places: places,
+          sum: sum,
+        });
+      }
     }
   }
 
   swap(up_id, down_id) {
-    const childA = document.getElementById(up_id);
-    const childB = document.getElementById(down_id);
+    const up = document.getElementById(up_id);
+    const down = document.getElementById(down_id);
     const finalChildAStyle = {
       y: null,
     };
@@ -65,12 +81,15 @@ export class ParticipantCardList extends React.Component {
       y: null,
     };
 
-    childA.classList.add('transition');
-    childB.classList.add('transition');
-    finalChildAStyle.y = 134 + this.state.sum[up_id];
-    finalChildBStyle.y = -134 + this.state.sum[down_id];
-    childA.style.transform = `translateY(${finalChildAStyle.y}px)`;
-    childB.style.transform = `translateY(${finalChildBStyle.y}px)`;
+    up.classList.add('transition');
+    down.classList.add('transition');
+    // TODO replace 134 for mobile
+    let x = window.innerWidth > 500 ? 134 : 183;
+    console.log(up.getBoundingClientRect().left - down.getBoundingClientRect().left);
+    finalChildAStyle.y = x + this.state.sum[up_id];
+    finalChildBStyle.y = -x + this.state.sum[down_id];
+    up.style.transform = `translateY(${finalChildAStyle.y}px)`;
+    down.style.transform = `translateY(${finalChildBStyle.y}px)`;
 
     let {ids, places, sum} = this.state;
     sum[up_id] = finalChildAStyle.y;
@@ -84,7 +103,6 @@ export class ParticipantCardList extends React.Component {
 
 
   render() {
-    // TODO update state with props
     console.log("render", this.props.items);
     if (this.props.items === undefined)
       return "";

@@ -7,7 +7,7 @@ export const PlusButton = (props) => {
     const { onClick } = props;
     return (
         <button
-            className = "plus_button"
+            className = "button"
             onClick = {onClick}
         >
             +
@@ -19,7 +19,7 @@ export const MinusButton = (props) => {
     const { onClick } = props;
     return (
         <button
-            className = "minus_button"
+            className = "button"
             onClick = {onClick}
         >
             -
