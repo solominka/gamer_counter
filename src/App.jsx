@@ -27,6 +27,10 @@ export class App extends React.Component {
 
     this.state = {
       participants: [],
+      last_update: {
+        id: -1,
+        type: 0,
+      }
     }
 
     this.assistant = initializeAssistant(() => this.getStateForAssistant() );
@@ -96,32 +100,44 @@ export class App extends React.Component {
 
   add_points(action, sign) {
     let arr = this.state.participants;
+    let changed_id;
     arr.forEach(item => {
       if (item.id + 1 === parseInt(action.participant)) {
         item.score += parseInt(action.points) * sign;
+        changed_id = item.id;
       }
     })
     this.setState({
       participants: arr,
+      last_update: {
+        id: changed_id,
+        type: sign,
+      }
     })
   }
 
   add_points_by_name(action, sign) {
     let arr = this.state.participants;
+    let changed_id;
     arr.forEach(item => {
       if (item.name.toLowerCase() === action.name.toLowerCase()) {
         item.score += parseInt(action.points) * sign;
+        changed_id = item.id;
       }
     })
     this.setState({
       participants: arr,
+      last_update: {
+        id: changed_id,
+        type: sign,
+      }
     })
   }
 
   onClickAdd(x) {
     return (participant_id) => {
-      let setSt = (arr) => {
-        this.setState({participants: arr});
+      let setSt = (st) => {
+        this.setState(st);
       }
       let part = this.state.participants;
       return function() {
@@ -130,7 +146,13 @@ export class App extends React.Component {
           if (item.id === participant_id)
             item.score += x;
         })
-        setSt(arr);
+        setSt({
+          participants: arr,
+          last_update: {
+            id: participant_id,
+            type: x,
+          }
+        })
       }
     }
   }
@@ -161,7 +183,7 @@ export class App extends React.Component {
     return (
       <ParticipantList
         items   = {this.state.participants}
-
+        lastUpdate = {this.state.last_update}
         onClickPlus = {this.onClickAdd(1)}
         onClickMinus = {this.onClickAdd(-1)}
         onChangeName = {this.onChangeName()}
@@ -173,6 +195,7 @@ export class App extends React.Component {
 // фронтенд
 // TODO добавление игроков
 // TODO сделать красивое поднятие имени игрока в рейтинге
+// TODO сделать размеры для смартфона
 
 // Сценарии:
 // Пользователь: «Включи виртуального баристу».

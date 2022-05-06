@@ -6,15 +6,85 @@ import "../App.css";
 export class ParticipantCardList extends React.Component {
   constructor(props) {
     super(props);
+    let ids = [], places = [], sum = [];
+    this.props.items.forEach((value, i) => {
+      ids[i] = value.id;
+      places[value.id] = i;
+      sum[value.id] = 0;
+    })
+    this.state = {
+      ids: ids,
+      places: places,
+      sum: sum,
+    }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.items && this.props.items.length !== 0)
-      console.log('animation starts here');
-    swap2(0, 1);
+    if (this.state.ids.length === 0) {
+      let ids = [], places = [], sum = this.state.sum;
+      this.props.items.forEach((value, i) => {
+        ids[i] = value.id;
+        places[value.id] = i;
+        sum[value.id] = 0;
+      })
+      this.setState({
+        ids: ids,
+        places: places,
+        sum: sum,
+      });
+      return;
+    }
+    console.log("last update", this.props.lastUpdate);
+    if (this.props.lastUpdate.type === 1) {
+      let curID = this.props.lastUpdate.id, curPlace = this.state.places[curID];
+      let upperPlace = curPlace-1, upperID = this.state.ids[upperPlace];
+      if (curPlace > 0 && this.props.items[curID].score > this.props.items[upperID].score) {
+        this.swap(upperID, curID);
+        let {ids, places, sum} = this.state;
+        ids[curPlace] = upperID; ids[upperPlace] = curID;
+        places[curID] = upperPlace; places[upperID] = curPlace;
+        this.setState({
+          ids: ids,
+          places: places,
+          sum: sum,
+        });
+        console.log("changed list state", this.state);
+      }
+    } else if (this.props.lastUpdate.type === -1) {
+      // todo
+    }
   }
 
+  swap(up_id, down_id) {
+    const childA = document.getElementById(up_id);
+    const childB = document.getElementById(down_id);
+    const finalChildAStyle = {
+      y: null,
+    };
+    const finalChildBStyle = {
+      y: null,
+    };
+
+    childA.classList.add('transition');
+    childB.classList.add('transition');
+    finalChildAStyle.y = 134 + this.state.sum[up_id];
+    finalChildBStyle.y = -134 + this.state.sum[down_id];
+    childA.style.transform = `translateY(${finalChildAStyle.y}px)`;
+    childB.style.transform = `translateY(${finalChildBStyle.y}px)`;
+
+    let {ids, places, sum} = this.state;
+    sum[up_id] = finalChildAStyle.y;
+    sum[down_id] = finalChildBStyle.y;
+    this.setState({
+      ids: ids,
+      places: places,
+      sum: sum,
+    });
+  }
+
+
   render() {
+    // TODO update state with props
     console.log("render", this.props.items);
     if (this.props.items === undefined)
       return "";
@@ -37,34 +107,4 @@ export class ParticipantCardList extends React.Component {
         </div>
     )
   }
-}
-
-function swap2(up_id, down_id) {
-  const childA = document.getElementById(up_id);
-  const childB = document.getElementById(down_id);
-  const finalChildAStyle = {
-    x: null,
-    y: null,
-  };
-  const finalChildBStyle = {
-    x: null,
-    y: null,
-  };
-
-  childA.classList.add('transition');
-  childB.classList.add('transition');
-  finalChildAStyle.x = childA.getBoundingClientRect().left - childB.getBoundingClientRect().left;
-  finalChildAStyle.y = childB.getBoundingClientRect().top - childA.getBoundingClientRect().top;
-  finalChildBStyle.x = childB.getBoundingClientRect().left - childA.getBoundingClientRect().left;
-  finalChildBStyle.y = childA.getBoundingClientRect().top - childB.getBoundingClientRect().top;
-  childA.style.transform = `translate(${finalChildAStyle.x}px, ${finalChildAStyle.y}px)`;
-  childB.style.transform = `translate(${finalChildBStyle.x}px, ${finalChildBStyle.y}px)`;
-
-  setTimeout(() => {
-    document.getElementById('cards_container').insertBefore(childB, childA);
-    childA.classList.remove('transition');
-    childB.classList.remove('transition');
-    childB.removeAttribute('style');
-    childA.removeAttribute('style');
-  }, 1000);
 }
