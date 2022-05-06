@@ -19,7 +19,7 @@ export const MinusButton = (props) => {
     const { onClick } = props;
     return (
         <button
-            className = {window.innerWidth > 500 ? "button_big minus" : "button_small minus"}
+            className = {window.innerWidth > 500 ? "button_big" : "button_small minus"}
             onClick = {onClick}
         >
             -

@@ -11,7 +11,7 @@ body {
 .containerSmall {
   margin: 0 auto;
   max-width: 100%;
-  padding: 0 10%;
+  padding: 0 3%;
 }
 
 .ParticipantCardBig, .ParticipantNameBig, .button_big {
@@ -55,7 +55,7 @@ body {
 
 .ParticipantNameSmall {
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .button_big, .button_small {
