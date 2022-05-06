@@ -14,23 +14,21 @@ body {
   padding: 0 10%;
 }
 
-.ParticipantCardBig, .ParticipantNameBig, .button, .minus_button_big {
+.ParticipantCardBig, .ParticipantNameBig, .button_big {
   background-color: rgba(255, 255, 255, 0.24);
   padding: 16px 32px;
   font-weight: 500;
   font-style: normal;
   font-size: 32px;
-  line-height: 40px;
   color: #ffffff;
 }
 
-.ParticipantCardSmall, .ParticipantNameSmall, .plus_button_small {
+.ParticipantCardSmall, .ParticipantNameSmall, .button_small {
   background-color: rgba(255, 255, 255, 0.24);
   padding: 14px 8px;
   font-weight: 350;
   font-style: normal;
-  font-size: 32px;
-  line-height: 40px;
+  font-size: 20px;
   color: #ffffff;
 }
 
@@ -49,10 +47,6 @@ body {
   align-items: center;
 }
 
-.ParticipantCardSmall {
-  flex-direction: column;
-}
-
 .ParticipantNameBig, .ParticipantNameSmall {
   background-color: transparent;
   border: solid transparent 3px;
@@ -60,22 +54,34 @@ body {
 }
 
 .ParticipantNameSmall {
-  width: 190px;
+  width: 100%;
+  text-align: center;
 }
 
-.button {
+.button_big, .button_small {
   border: 0;
   border-radius: 10px;
   margin-left: 10px;
 }
 
-::placeholder {
+.button_small {
+  padding: 10px;
+}
+
+.ParticipantNameBig::placeholder {
   color: #ffffff;
   font-weight: 500;
   font-style: normal;
   font-size: 32px;
-  line-height: 40px;
 }
+
+.ParticipantNameSmall::placeholder {
+  color: #ffffff;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 20px;
+}
+
 
 .ParticipantNameBig:focus {
   border: solid rgba(255, 255, 255, 0.24) 3px;
@@ -86,9 +92,11 @@ body {
   transition: transform ease-in 0.5s;
 }
 
-.span {
+.span_small {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+}
+
+.minus {
+  padding: 10.5px 12px;
 }

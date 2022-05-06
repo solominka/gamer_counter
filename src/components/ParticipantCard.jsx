@@ -28,7 +28,7 @@ export const ParticipantCard = (props) => {
           />
 
           <span
-            className={window.innerWidth > 500 ? "" : "span"}
+            className={window.innerWidth > 500 ? "" : "span_small"}
           >
               {score}
               <PlusButton onClick={onClickPlus}/>
