@@ -6,8 +6,8 @@ export const ParticipantList = (props) => {
     return (
         <main className="container">
             <ParticipantCardList
-                items   = { items }
-                onClickPlus = { onClickPlus }
+                items        = { items }
+                onClickPlus  = { onClickPlus }
                 onClickMinus = { onClickMinus }
                 onChangeName = { onChangeName }
             />

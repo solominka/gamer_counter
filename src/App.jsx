@@ -9,11 +9,11 @@ import { ParticipantList } from './pages/ParticipantList';
 
 
 const initializeAssistant = (getState) => {
-  if (1) { //(process.env.NODE_ENV === "development") {
-    console.log('initializeAssistant');
+  if (process.env.NODE_ENV === "development") {
+    // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MTg2MDY2OCwiaWF0IjoxNjUxNzc0MjU4LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiYjY3MzFjYzAtMWFmZC00YjVhLWIzZDQtMTE2ZjhjNmJkMDY3Iiwic2lkIjoiNzdiZjIwYzctNjZmNS00MjAwLThhNDYtMDE5YmMyMDk5MTk5In0.nAJdZ0C_dm2zsnfMwpMGIwnbcvQvvkmtrdXnN3-WGKQijRdZlqB1YOKTJ2dcZQWOVbg7CVVSw-N1rdM0xvePklr8K7lZa5WsTiW7j3vUbWITaAbGGYwlbg--5FxLu175tD7KH_Qa7xkQdag9MoDF8I3OQ66A0NG5sD9UZHfsfKIKI12A0EU6aFfcQ5ZcvSXfPp5mrJGG79Xxke1AtIXNycqansMBCezUmDlSF9dr0s24NhWz0VSn1Zqpob4m9JigCp-e64vrXgvRSFYM6DM0IDG0-3YJ3AHTe7b3xpyW1mf-zKXOsRyOVfwXsezl2F1iGghy45yFVkYEO0ASV3MKxE0s80JiztPEeICt3W13CP_oVP-UWh-wig-WPWJEBgEHkry-G1mYJPZTusrk4lHEFEpru6lWyv0lJbVakaVCsz8mln74v5b-9tA5cufduW7MuYmbrRgSq_6KLarpIYfMy2IE7ce4kFarR1y6arMY66CnIJXBPt-_1d0OkCAqnDMxeJ2aELtMfSM6EyDBtGiaFinxzyx_n8Gsv0IaN9CMTGAL1SbzQq7vD-eYvyi8ioIrIuHLQHkTzlF6vtqIAQ5xPtFL9H380BI0PdWBwqy9z0ui-_U0w0eZ4YNuxsoOsY4jZlnYSKvWDo_11gGMCAJkiWXJpo8T0ajsmTzEhJ-2Mzs",
-      initPhrase: `Запусти Счетчик очков`,
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MTkwNjM4MSwiaWF0IjoxNjUxODE5OTcxLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNDkyNjYwZWUtOWY2Yy00YmQwLWJlMDMtNGE5ZWE3OGRlMjIyIiwic2lkIjoiZmEzM2Y4MjgtYTU2Mi00MDNmLTgyMGEtN2EzYjMyNmRjMDBmIn0.lL4DkfBszH7xjUP0_jq7V0QfUfmiHz59M7H0S8zfyHxoOZOunqgHJgFU1XGtALXuFe1G9aQHHzgr60Ukutmda46_NkoH7dMlNY3_CIao7wYCqwYgKYq4pRHkKjxRV38HZHkWaFiOub7cZfK0wnJb5sa2yV3zbqkKpybDvWPCOhIq5BBsST9A8-5VIuO16Ei3Xdha1eTH5-gtUfLYl-gLoG8W6jvQTPINHZH2cv7K6-q3d_sbPrDQiD0388UzLSOsIUmZ5wjpGkzcYr82gif7FBKQVlx4IAPDS7yRBtdp2oDQSDIrYPumCbEAJGC8TV1JGVHvekbEHRTKlmjTADjMHWUDMhPla4R9ukux2gkb3yqA050-QwWfLQE8sLwE2YPZK8rHC0ogfqv9RZjUtUWwsOrN6SKv16nN-dkhJWGGBnJHHRZe2Tr-rgJ2N2qm4KYgP2z25jx_aS_YGtDpLdP74XkJ8UUGpdyAye92t5gbSff49Mx7cCyR7MlrjF0FMO33XLzKJgQNhAI4InmTmA_kOjsR7z1P9BWb5J_VEWTVeYuoH2GGVLgHfiJYq8M9aB_tuulQ01L7VbI4siYjLkh9bZM-p0uVp5s31X7yaK7s76-K_tAnBJYyN6jKvYJqSVJGjHmGk6UDpzpxD-_QvwR0QjliEKotXoTiDxadfqjSztg",
+      initPhrase: `Запусти счетчик очков`,
       getState,
     });
   }
@@ -24,7 +24,6 @@ export class App extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('constructor');
 
     this.state = {
       participants: [],
@@ -173,6 +172,7 @@ export class App extends React.Component {
 
 // фронтенд
 // TODO добавление игроков
+// TODO сделать красивое поднятие имени игрока в рейтинге
 
 // Сценарии:
 // Пользователь: «Включи виртуального баристу».
@@ -184,16 +184,12 @@ export class App extends React.Component {
 // TODO больше инструкций/подсказок пользователю
 
 // TODO 0 баллов, 1 балл, 2-4 балла, 5-9 баллов
-// TODO сообщения пользователю о неправильных запросах добавления по номеру
 // TODO добавление игроков
 
-// MORE
-// TODO сделать красивое поднятие имени игрока в рейтинге
-
 // Перед выкаткой
-// в описании написать про ограничение на число игроков (до 10)
+// TODO в описании написать про ограничение на число игроков (до 10)
+// TODO билд на хостинге
 // TODO тестирование
-// TODO разобраться с полем Хостинг Canvas App (https://developers.sber.ru/docs/ru/va/how-to/publication/main-settings#%D1%85%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B3-canvas-app)
 // TODO скриншоты для описания
 
 // После публикации

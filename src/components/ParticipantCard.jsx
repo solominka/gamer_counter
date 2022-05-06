@@ -14,8 +14,9 @@ export const ParticipantCard = (props) => {
   let placeholder = name.length === 0 ? "Участник " + (participantId+1) : name;
 
   return (
-      <li
+      <div
           key       = { participantId }
+          id        = { participantId }
           className = "ParticipantCard"
       >
           <input
@@ -32,6 +33,6 @@ export const ParticipantCard = (props) => {
               <PlusButton onClick={onClickPlus}/>
               <MinusButton onClick={onClickMinus}/>
           </span>
-      </li>
+      </div>
   )
 }
