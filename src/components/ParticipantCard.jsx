@@ -17,18 +17,18 @@ export const ParticipantCard = (props) => {
       <div
           key       = { participantId }
           id        = { participantId }
-          className = {window.innerWidth > 500 ? "ParticipantCardBig" : "ParticipantCardSmall"}
+          className = {window.innerWidth > 650 ? "ParticipantCardBig" : "ParticipantCardSmall"}
       >
           <input
               id={"name"+index}
               onFocus={() => {placeholder = "";}}
               onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
               placeholder={placeholder}
-              className = {window.innerWidth > 500 ? "ParticipantNameBig" : "ParticipantNameSmall"}
+              className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
           />
 
           <span
-            className={window.innerWidth > 500 ? "" : "span_small"}
+            className={window.innerWidth > 650 ? "" : "span_small"}
           >
               {score}
               <PlusButton onClick={onClickPlus}/>

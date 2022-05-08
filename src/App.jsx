@@ -12,7 +12,7 @@ const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MTkwNjM4MSwiaWF0IjoxNjUxODE5OTcxLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNDkyNjYwZWUtOWY2Yy00YmQwLWJlMDMtNGE5ZWE3OGRlMjIyIiwic2lkIjoiZmEzM2Y4MjgtYTU2Mi00MDNmLTgyMGEtN2EzYjMyNmRjMDBmIn0.lL4DkfBszH7xjUP0_jq7V0QfUfmiHz59M7H0S8zfyHxoOZOunqgHJgFU1XGtALXuFe1G9aQHHzgr60Ukutmda46_NkoH7dMlNY3_CIao7wYCqwYgKYq4pRHkKjxRV38HZHkWaFiOub7cZfK0wnJb5sa2yV3zbqkKpybDvWPCOhIq5BBsST9A8-5VIuO16Ei3Xdha1eTH5-gtUfLYl-gLoG8W6jvQTPINHZH2cv7K6-q3d_sbPrDQiD0388UzLSOsIUmZ5wjpGkzcYr82gif7FBKQVlx4IAPDS7yRBtdp2oDQSDIrYPumCbEAJGC8TV1JGVHvekbEHRTKlmjTADjMHWUDMhPla4R9ukux2gkb3yqA050-QwWfLQE8sLwE2YPZK8rHC0ogfqv9RZjUtUWwsOrN6SKv16nN-dkhJWGGBnJHHRZe2Tr-rgJ2N2qm4KYgP2z25jx_aS_YGtDpLdP74XkJ8UUGpdyAye92t5gbSff49Mx7cCyR7MlrjF0FMO33XLzKJgQNhAI4InmTmA_kOjsR7z1P9BWb5J_VEWTVeYuoH2GGVLgHfiJYq8M9aB_tuulQ01L7VbI4siYjLkh9bZM-p0uVp5s31X7yaK7s76-K_tAnBJYyN6jKvYJqSVJGjHmGk6UDpzpxD-_QvwR0QjliEKotXoTiDxadfqjSztg",
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MjA4NDM1MiwiaWF0IjoxNjUxOTk3OTQyLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiM2U5Zjc2ODUtZGQ3My00ZGJkLTkzNjktZmFkMjBiYTA3ZmJkIiwic2lkIjoiYjFlOTBlNzItM2Y3OS00NjBlLWI4NGUtYzhkNWZmN2ZkMGU0In0.QqfJy3ue-O2PaUcXA54P7liT-kgJ_U3E2iw-Xi2HUaTZT7seeVpicbFb1JwBZQVEX3S5AVgvhW2oQIoIgWnEmURWNIO74IDCWYpoHX4Ho3klUQK-aJTHw_RpMdpOILO4CstWOKzOcXAwG6HSGLEBMmhQxFbao4U6foxi2csCLLay9rmcRq2jBI77EwD2f3dErrUPEc_YmCNBs0W-OR1R3U8xl1UHtC5YHNEdOp_Y_4VCFRa-xBO0n7k43J9nyKFx_0GfAePkJgq8OTMSghjEk1HXTYDtGp5-0d5ff3QLp9SQ1a322y2TI2r7ZTgv9097A4UfwRCFRLuWZJmFALQSheEGA_eC8lty-FJeWVguBYRSa5-SmoI8s-GaSlT5aAMnceYuob0ZLuVQxMexpZ0xWxglNNS6moLRpyYdVutfhO5aXkQqS1RtQ4PwlwfX_BmjKmatTcEQvG4WM8JzLJ__QRiC0ypEy592Gsb7qn0CDgm2uBhjLBmcOwX4GJSXmyHeb6us813FmI1wRt4QGQpmFSNwvFGMNqhihWisxtb9YiCqJxfEbwp_HSe1vexvqeoePsaLz0cvzgIrTlZWBxpj8K15uQZhL09qbTVdGy0NMpTa7eV1TvzuPxZZPdk4wnCpeWSQqIAetLYWeRhRKuheuEnulEh87HwW2MQt0nHPkqY",
       initPhrase: `Запусти счетчик очков`,
       surface: "COMPANION",
       getState,
@@ -32,6 +32,14 @@ export class App extends React.Component {
         id: -1,
         type: 0,
       }
+    }
+
+    switch(props.name) {
+      case 1:
+        return -1;
+      case 2||3||4:
+
+      default:
     }
 
     this.assistant = initializeAssistant(() => this.getStateForAssistant() );
@@ -194,21 +202,14 @@ export class App extends React.Component {
 }
 
 // фронтенд
-// TODO сделать размеры для смартфона
 
 // Сценарии:
-// Пользователь: «Включи виртуального баристу».
-// Ассистент: «Я виртуальный бариста. Могу рассказать как приготовить кофе. Чтобы узнать, скажите «Дальше». Чтобы выйти из навыка, скажите «Выход».
-// TODO базовые вопросы: привет, что ты умеешь, помощь, захлопнись
-// TODO закрытие смартапа https://developers.sber.ru/docs/ru/va/how-to/start-stop/close-app
-// TODO подстраивать реплики под персонажа
-// TODO больше инфы на входе
-// TODO 0 баллов, 1 балл, 2-4 балла, 5-9 баллов
+// TODO закрыть приложение (мб уже работает)
+// TODO начать сначала (reset)
 
 // Перед выкаткой
-// TODO в описании написать про ограничение на число игроков (до 10)
 // TODO билд на хостинге
-// TODO тестирование
+// TODO описание тестирования
 // TODO скриншоты для описания
 
 // После публикации

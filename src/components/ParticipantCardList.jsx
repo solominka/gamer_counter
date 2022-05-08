@@ -44,7 +44,7 @@ export class ParticipantCardList extends React.Component {
       if (curPlace === 0) return;
 
       let upperPlace = curPlace-1, upperID = this.state.ids[upperPlace];
-      if (this.props.items[curID].score > this.props.items[upperID].score) {
+      if (this.props.items[curID] && this.props.items[upperID] && this.props.items[curID].score > this.props.items[upperID].score) {
         this.swap(upperID, curID);
         ids[curPlace] = upperID; ids[upperPlace] = curID;
         places[curID] = upperPlace; places[upperID] = curPlace;
@@ -85,7 +85,6 @@ export class ParticipantCardList extends React.Component {
 
     up.classList.add('transition');
     down.classList.add('transition');
-    // TODO replace 134 for mobile
 
     if (x === 0) {
       x = up.getBoundingClientRect().top - down.getBoundingClientRect().top;
