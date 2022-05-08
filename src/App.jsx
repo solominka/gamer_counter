@@ -129,7 +129,7 @@ export class App extends React.Component {
     let arr = this.state.participants;
     let changed_id;
     arr.forEach(item => {
-      if (item.name.toLowerCase() === action.name.toLowerCase()) {
+      if (item.name.trim().toLowerCase() === action.name.trim().toLowerCase()) {
         item.score += parseInt(action.points) * sign;
         changed_id = item.id;
       }
