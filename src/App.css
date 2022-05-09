@@ -9,9 +9,9 @@ body {
 }
 
 .containerSmall {
-  margin: 0 auto;
   max-width: 100%;
   padding: 0 3%;
+  margin: 0 auto 40%;
 }
 
 .ParticipantCardBig, .ParticipantNameBig, .button_big {
