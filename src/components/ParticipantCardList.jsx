@@ -32,7 +32,7 @@ export class ParticipantCardList extends React.Component {
   }
 
   doAnimation() {
-    if (this.state.ids.length === 0) {
+    if (this.state.ids.length === 0 && this.props.items.length > 0) {
       let ids = [], places = [], sum = this.state.sum;
       this.props.items.forEach((value, i) => {
         ids[i] = value.id;
