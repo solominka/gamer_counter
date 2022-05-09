@@ -44,7 +44,7 @@ export class ParticipantCardList extends React.Component {
   }
 
   animateToStart() {
-    for (let i = 0; i < this.state.ids.length; i++) {
+    for (let i = 0; i < this.props.items.length; i++) {
       const e = document.getElementById(i);
       e.style.transform = `translateY(0px)`;
     }
