@@ -25,12 +25,6 @@ export class ParticipantCardList extends React.Component {
     this.doAnimation();
   }
 
-  componentDidMount() {
-    if (this.state.ids === null || this.props.lastUpdate.id >= this.state.ids.length)
-      return;
-    this.doAnimation();
-  }
-
   doAnimation() {
     if (this.state.ids.length === 0 && this.props.items.length > 0) {
       let ids = [], places = [], sum = this.state.sum;
@@ -141,3 +135,5 @@ export class ParticipantCardList extends React.Component {
     )
   }
 }
+
+// TODO исправить изменение размера экрана (хотя впринципе его не должно случиться, может и не надо...)

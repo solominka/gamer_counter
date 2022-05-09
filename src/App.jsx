@@ -13,8 +13,7 @@ const initializeAssistant = (getState) => {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
       token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MjE4ODkyMiwiaWF0IjoxNjUyMTAyNTEyLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNjY3OGVhMTAtNzBmZi00ZGQ1LTg2ZjItYjFlNjExOTZhZGNmIiwic2lkIjoiYjJlZTMzMDktYTYzMC00YjIzLTg0MGQtYTY2MzMyNTg4NjE0In0.EOHBc7jZCx6cbkwRNla3dB6V9yckOF0JxwkdRUBheg0YGKAXlwF61_QibiNndLf7vMvBfmHwS-4Cx7PFmAZcWceK65o1MQnA4jDMBAQQKy4gkOq96gej8Sed0amgd2r77BR6lRM54i0Qe8ByHvqPG5y4uGgH-gwh3FmorhzirACgqXi9JHpD5PS8-YCy4TT6udtM0NFbPoH5vxPBvVEJh8oqmWIYRtEFNa6in9vvgOAmoaFroSyv8UvFH_bohys7VPfyaOJX1eIuQgrHK3hU-dvzZrOkgrGM9EKYh5-Y7tlsuHnjkd0aTwTQdR6p_uvC-EC5Ft_QrGLJIyjeVSOXY1fSicRxI-nxFxT4apfb8A7ssQcf0w7EUQSbHphzp2Wcrvf2yq0IA904hvOfhEh72xo9hBzv1bEocpDunRjIDxKZ2sADzgt0bPteQ297HqhFEKqBo-TQtP3zTtbOhgICuHntS96PW3skwfxEDbm3xt21WpgaZ_niXZ-7Kdfq4WlYI3Y161ARQ7HwNxBKRFHaI80rC_2y0Kd6WRCDnJXlqrH3vSbAqo4XzRkFLnqwSqwV10quiGPvdNGqLGNjpMOt_DQNUplNRr-HvSPe2GV78ALsZmvFkn1spHq_rMHYjiov51oeftYMQNOt8DbkZtdsi2WI6-zQFB9KiyvQC4zN0eY",
-      initPhrase: `Запусти Счетчик очков`,
-      // surface: "COMPANION",
+      initPhrase: `Запусти Счётчик очков`,
       getState,
     });
   }
@@ -80,15 +79,10 @@ export class App extends React.Component {
         case 'set_user_number':
           return this.set_user_number(action);
         case 'add_points':
-          return this.add_points(action, 1);
+          return this.add_points(action);
         case 'add_points_by_name':
-          return this.add_points_by_name(action, 1);
-        case 'subtract_points_by_name':
-          return this.add_points_by_name(action, -1);
-        case 'subtract_points':
-          return this.add_points(action, -1);
+          return this.add_points_by_name(action);
         default:
-          // TODO change this before deploy
           throw new Error();
       }
     }
@@ -107,12 +101,13 @@ export class App extends React.Component {
     })
   }
 
-  add_points(action, sign) {
+  add_points(action) {
+    let sign = action.points > 0 ? 1 : -1;
     let arr = this.state.participants;
     let changed_id;
     arr.forEach(item => {
       if (item.id + 1 === parseInt(action.participant)) {
-        item.score += parseInt(action.points) * sign;
+        item.score += parseInt(action.points);
         changed_id = item.id;
       }
     })
@@ -125,12 +120,13 @@ export class App extends React.Component {
     })
   }
 
-  add_points_by_name(action, sign) {
+  add_points_by_name(action) {
+    let sign = action.points > 0 ? 1 : -1;
     let arr = this.state.participants;
     let changed_id;
     arr.forEach(item => {
       if (item.name.trim().toLowerCase() === action.name.trim().toLowerCase()) {
-        item.score += parseInt(action.points) * sign;
+        item.score += parseInt(action.points);
         changed_id = item.id;
       }
     })
@@ -202,9 +198,12 @@ export class App extends React.Component {
 }
 
 // фронтенд
+
 // Сценарии:
+// TODO потестить запуск с других слов и названий аппа
 
 // Перед выкаткой
+// TODO выключить возможность запуска на сбербокс
 // TODO билд на хостинге
 // TODO описание тестирования
 // TODO скриншоты для описания
