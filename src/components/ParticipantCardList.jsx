@@ -22,7 +22,9 @@ export class ParticipantCardList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.ids.length > this.props.items.length) {
+    if (this.props.lastUpdate.type === 0)
+      return;
+    if (this.props.lastUpdate.type === 2) {
       let ids = [], places = [], sum = [];
       this.props.items.forEach((value, i) => {
         ids[i] = value.id;
@@ -34,8 +36,18 @@ export class ParticipantCardList extends React.Component {
         places: places,
         sum: sum,
       });
+      this.props.lastUpdate.type = 0;
+      this.animateToStart();
+      return;
     }
     this.doAnimation();
+  }
+
+  animateToStart() {
+    for (let i = 0; i < this.state.ids.length; i++) {
+      const e = document.getElementById(i);
+      e.style.transform = `translateY(0px)`;
+    }
   }
 
   doAnimation() {
@@ -100,9 +112,6 @@ export class ParticipantCardList extends React.Component {
       y: null,
     };
 
-    up.classList.add('transition');
-    down.classList.add('transition');
-
     if (x === 0) {
       x = up.getBoundingClientRect().top - down.getBoundingClientRect().top;
       console.log(x);
@@ -148,5 +157,3 @@ export class ParticipantCardList extends React.Component {
     )
   }
 }
-
-// TODO исправить изменение размера экрана (хотя впринципе его не должно случиться, может и не надо...)

@@ -19,7 +19,7 @@ export const ParticipantCard = (props) => {
       <div
           key       = { participantId }
           id        = { participantId }
-          className = {window.innerWidth > 650 ? "ParticipantCardBig" : "ParticipantCardSmall"}
+          className = {window.innerWidth > 650 ? "ParticipantCardBig transition" : "ParticipantCardSmall transition"}
       >
           <input
               id={"name"+index}

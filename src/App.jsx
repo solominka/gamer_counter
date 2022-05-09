@@ -100,7 +100,7 @@ export class App extends React.Component {
       participants: arr,
       last_update: {
         id: -1,
-        type: 0,
+        type: 2,
       }
     })
   }
@@ -202,6 +202,7 @@ export class App extends React.Component {
 }
 
 // фронтенд
+// рестарт с тем же количеством игроков
 
 // Сценарии:
 
