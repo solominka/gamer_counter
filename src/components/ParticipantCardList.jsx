@@ -22,6 +22,19 @@ export class ParticipantCardList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.ids.length > this.props.items.length) {
+      let ids = [], places = [], sum = [];
+      this.props.items.forEach((value, i) => {
+        ids[i] = value.id;
+        places[value.id] = i;
+        sum[value.id] = 0;
+      })
+      this.setState({
+        ids: ids,
+        places: places,
+        sum: sum,
+      });
+    }
     this.doAnimation();
   }
 
