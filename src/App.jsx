@@ -98,6 +98,10 @@ export class App extends React.Component {
       })
     this.setState({
       participants: arr,
+      last_update: {
+        id: -1,
+        type: 0,
+      }
     })
   }
 
@@ -200,13 +204,12 @@ export class App extends React.Component {
 // фронтенд
 
 // Сценарии:
-// TODO потестить запуск с других слов и названий аппа
 
 // Перед выкаткой
+// TODO скриншоты для описания
+// TODO описание тестирования
 // TODO выключить возможность запуска на сбербокс
 // TODO билд на хостинге
-// TODO описание тестирования
-// TODO скриншоты для описания
 
 // После публикации
-// можно получить сбербокс(?) https://developers.sber.ru/portal/virtual-assistants-salute/sberbox-smartapp
+// TODO можно получить сбербокс(?) https://developers.sber.ru/portal/virtual-assistants-salute/sberbox-smartapp

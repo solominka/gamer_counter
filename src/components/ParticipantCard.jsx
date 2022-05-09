@@ -7,8 +7,10 @@ export const ParticipantCard = (props) => {
   let { index, participantId, name, score, onClickPlus, onClickMinus, onChangeName } = props;
   let f = () => {
       let input = document.getElementById("name"+index);
-      if (input !== null)
+      if (input !== null && input.value.length > 0) {
           onChangeName(input.value)();
+          input.value = "";
+      }
   }
 
   let placeholder = name.length === 0 ? "Участник " + (participantId+1) : name;
