@@ -6,13 +6,14 @@ import {
 
 import "./App.css";
 import { ParticipantList } from './pages/ParticipantList';
+import { Help } from './components/Help';
 
 
 const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MjE4ODkyMiwiaWF0IjoxNjUyMTAyNTEyLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNjY3OGVhMTAtNzBmZi00ZGQ1LTg2ZjItYjFlNjExOTZhZGNmIiwic2lkIjoiYjJlZTMzMDktYTYzMC00YjIzLTg0MGQtYTY2MzMyNTg4NjE0In0.EOHBc7jZCx6cbkwRNla3dB6V9yckOF0JxwkdRUBheg0YGKAXlwF61_QibiNndLf7vMvBfmHwS-4Cx7PFmAZcWceK65o1MQnA4jDMBAQQKy4gkOq96gej8Sed0amgd2r77BR6lRM54i0Qe8ByHvqPG5y4uGgH-gwh3FmorhzirACgqXi9JHpD5PS8-YCy4TT6udtM0NFbPoH5vxPBvVEJh8oqmWIYRtEFNa6in9vvgOAmoaFroSyv8UvFH_bohys7VPfyaOJX1eIuQgrHK3hU-dvzZrOkgrGM9EKYh5-Y7tlsuHnjkd0aTwTQdR6p_uvC-EC5Ft_QrGLJIyjeVSOXY1fSicRxI-nxFxT4apfb8A7ssQcf0w7EUQSbHphzp2Wcrvf2yq0IA904hvOfhEh72xo9hBzv1bEocpDunRjIDxKZ2sADzgt0bPteQ297HqhFEKqBo-TQtP3zTtbOhgICuHntS96PW3skwfxEDbm3xt21WpgaZ_niXZ-7Kdfq4WlYI3Y161ARQ7HwNxBKRFHaI80rC_2y0Kd6WRCDnJXlqrH3vSbAqo4XzRkFLnqwSqwV10quiGPvdNGqLGNjpMOt_DQNUplNRr-HvSPe2GV78ALsZmvFkn1spHq_rMHYjiov51oeftYMQNOt8DbkZtdsi2WI6-zQFB9KiyvQC4zN0eY",
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MjQ1NTA2NywiaWF0IjoxNjUyMzY4NjU3LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNmM3OTc3YTctNTAwZC00NmZhLWI5YzctNjgyOTZmMTM1MTEzIiwic2lkIjoiYjM4YzZkM2YtMzE3YS00NzMzLWI5YTMtZWMxMzNmOTg3NWQxIn0.gBx0qO1eyZ7kIbjeGEtld8qE3dqqKUWTurqSLAEzTyuNfuZJhKYXOsvD-tQz20D445viCqPaRkwqX7JHkecjfPUq2I1gS_81n7kgjoc8pxFgOCqjmqB8p_qplsXK1QRaZr-8WnveK54-sOYD7ZFpjERNrrda10wT9Yi0LqZXfcRuwjE6QNiPjUwMKTSEjBx1ovArZ1k0o3cWR_ozySHsTYmd6xfHTHb1KwEhmZBJqutCLsHHvNY_vuZSJI7G3at8ls8Z1MupNgTfc-GmGGxy69_BAQIL9Fegg3_ukodPJGb0mJt3DQ9kybOLMDH1pa69vdtTC3FU95aVY-ij4-4YUls1hTHGSzMf2TKPzXR-eEvKBpHc_f7_02Gv-kd-Eq-ip4VSnyJerQ0ScsrTFv85GpMzwUyT8OT8RHDJnOqMxfcVfbn0VI07Oro-S4IHOEePCXLP1KqNsHk1w2R1FtYZaGpakjuiaUU6BiM6l_ufka_06DNZZf6ZVG0_O7qZ5Z44IyUtmWrVSFoIA6BJUfi4diy6isfCleTPmXBSRVNeHqpJw63MTeYTJ4kTaVQVTcKIIFvj8_iloAqsZHJVJ8VFwfkfru-l9Wj19JCbmwa0JAnEx4SUeSz67pmI406F3Ag7gaZHtSc_H9C8rSBgjUAdFOZUlo9OfNhBtZLywJDeQzo",
       initPhrase: `Запусти Счётчик очков`,
       getState,
     });
@@ -30,7 +31,8 @@ export class App extends React.Component {
       last_update: {
         id: -1,
         type: 0,
-      }
+      },
+      help_text: ""
     }
 
     switch(props.name) {
@@ -82,10 +84,22 @@ export class App extends React.Component {
           return this.add_points(action);
         case 'add_points_by_name':
           return this.add_points_by_name(action);
+        case 'get_help':
+          return this.helpText(action);
         default:
           throw new Error();
       }
     }
+  }
+
+  helpText(action) {
+    this.setState((state) => {
+      return {
+        participants: state.participants,
+        last_update: state.last_update,
+        help_text: action.text
+      }
+    })
   }
 
   set_user_number(action) {
@@ -96,13 +110,16 @@ export class App extends React.Component {
         name: "Участник " + (i+1),
         score: 0,
       })
-    this.setState({
-      participants: arr,
-      last_update: {
-        id: -1,
-        type: 2,
+    this.setState((state) => {
+      return {
+        participants: arr,
+        last_update: {
+          id: -1,
+          type: 2,
+        },
+        help_text: state.help_text
       }
-    })
+    });
   }
 
   add_points(action) {
@@ -115,13 +132,16 @@ export class App extends React.Component {
         changed_id = item.id;
       }
     })
-    this.setState({
-      participants: arr,
-      last_update: {
-        id: changed_id,
-        type: sign,
+    this.setState((state) => {
+      return {
+        participants: arr,
+        last_update: {
+          id: changed_id,
+          type: sign,
+        },
+        help_text: state.help_text
       }
-    })
+    });
   }
 
   add_points_by_name(action) {
@@ -134,13 +154,16 @@ export class App extends React.Component {
         changed_id = item.id;
       }
     })
-    this.setState({
-      participants: arr,
-      last_update: {
-        id: changed_id,
-        type: sign,
+    this.setState((state) => {
+      return {
+        participants: arr,
+        last_update: {
+          id: changed_id,
+          type: sign,
+        },
+        help_text: state.help_text
       }
-    })
+    });
   }
 
   onClickAdd(x) {
@@ -148,6 +171,7 @@ export class App extends React.Component {
       let setSt = (st) => {
         this.setState(st);
       }
+      let help_text = this.state.help_text;
       let part = this.state.participants;
       return function() {
         let arr = part;
@@ -160,7 +184,8 @@ export class App extends React.Component {
           last_update: {
             id: participant_id,
             type: x,
-          }
+          },
+          help_text: help_text
         })
       }
     }
@@ -169,7 +194,13 @@ export class App extends React.Component {
   onChangeName() {
     return (participant_id) => {
       let setSt = (arr) => {
-        this.setState({participants: arr});
+        this.setState((state) => {
+          return {
+            participants: arr,
+            last_update: state.last_update,
+            help_text: state.help_text
+          }
+        });
       }
       let part = this.state.participants;
       return function (name) {
@@ -189,28 +220,47 @@ export class App extends React.Component {
 
   render() {
     console.log('render, ', this.state);
-    return (
-      <ParticipantList
-        items   = {this.state.participants}
-        lastUpdate = {this.state.last_update}
-        onClickPlus = {this.onClickAdd(1)}
-        onClickMinus = {this.onClickAdd(-1)}
-        onChangeName = {this.onChangeName()}
-      />
-    )
+    if (this.state.participants.length > 0)
+      return (
+          <ParticipantList
+              items   = {this.state.participants}
+              lastUpdate = {this.state.last_update}
+              onClickPlus = {this.onClickAdd(1)}
+              onClickMinus = {this.onClickAdd(-1)}
+              onChangeName = {this.onChangeName()}
+          />
+      )
+
+    return <Help text = {this.state.help_text} />
   }
 }
 
-// фронтенд
-// рестарт с тем же количеством игроков
+// доделки по модерации
 
-// Сценарии:
+// сложно
+// TODO На превью смартапа не должно быть видно панели ассистента
 
 // Перед выкаткой
-// TODO скриншоты для описания
-// TODO описание тестирования
+// TODO потестить на фронте
 // TODO выключить возможность запуска на сбербокс
 // TODO билд на хостинге
 
 // После публикации
 // TODO можно получить сбербокс(?) https://developers.sber.ru/portal/virtual-assistants-salute/sberbox-smartapp
+
+
+// DONE
+// поменять возрастную категорию на 6+
+// Ассистентам Сбер и Афина характерен более деловой стиль в общении, поэтому они не могут говорить "Привет"
+// добавить интент "заново"
+// На голосовой запрос вне контекста ассистент отвечает "Я не понимаю". На такие запросы ассистент должен подсказывать как вернуться к сценарию;
+
+// добавить текст с описанием смартапа при запуске
+// отправлять текст помощи из сценария на фронт
+
+// расширить список голосовых команд, которыми можно прибавлять/удалять очки у участников, чтобы пользователь мог по разному строить фразу и ассистент его понимал (добавь/прибавь/плюс)
+// заменить шаблоны на интенты в добавлении/вычитании очков
+// сделать сущность на первого/второго/...
+
+
+
