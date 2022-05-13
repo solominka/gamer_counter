@@ -8,6 +8,18 @@ import "./App.css";
 import { ParticipantList } from './pages/ParticipantList';
 import { Help } from './components/Help';
 
+let map = {
+  ["пер"]: 1,
+  ["вто"]: 2,
+  ["тре"]: 3,
+  ["чет"]: 4,
+  ["пят"]: 5,
+  ["шес"]: 6,
+  ["сед"]: 7,
+  ["вос"]: 8,
+  ["дев"]: 9,
+  ["дес"]: 10
+}
 
 const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
@@ -33,14 +45,6 @@ export class App extends React.Component {
         type: 0,
       },
       help_text: ""
-    }
-
-    switch(props.name) {
-      case 1:
-        return -1;
-      case 2||3||4:
-
-      default:
     }
 
     this.assistant = initializeAssistant(() => this.getStateForAssistant() );
@@ -86,6 +90,8 @@ export class App extends React.Component {
           return this.add_points_by_name(action);
         case 'get_help':
           return this.helpText(action);
+        case "show_help":
+          return this.show_help();
         default:
           throw new Error();
       }
@@ -126,8 +132,9 @@ export class App extends React.Component {
     let sign = action.points > 0 ? 1 : -1;
     let arr = this.state.participants;
     let changed_id;
+    let part = map[action.participant.slice(0, 3)];
     arr.forEach(item => {
-      if (item.id + 1 === parseInt(action.participant)) {
+      if (item.id + 1 === part) {
         item.score += parseInt(action.points);
         changed_id = item.id;
       }
@@ -238,7 +245,6 @@ export class App extends React.Component {
 // доделки по модерации
 
 // сложно
-// TODO На превью смартапа не должно быть видно панели ассистента
 
 // Перед выкаткой
 // TODO потестить на фронте
@@ -253,6 +259,7 @@ export class App extends React.Component {
 // поменять возрастную категорию на 6+
 // Ассистентам Сбер и Афина характерен более деловой стиль в общении, поэтому они не могут говорить "Привет"
 // добавить интент "заново"
+// На превью смартапа не должно быть видно панели ассистента
 // На голосовой запрос вне контекста ассистент отвечает "Я не понимаю". На такие запросы ассистент должен подсказывать как вернуться к сценарию;
 
 // добавить текст с описанием смартапа при запуске
