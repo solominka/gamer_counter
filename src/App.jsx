@@ -8,24 +8,11 @@ import "./App.css";
 import { ParticipantList } from './pages/ParticipantList';
 import { Help } from './components/Help';
 
-let map = {
-  ["пер"]: 1,
-  ["вто"]: 2,
-  ["тре"]: 3,
-  ["чет"]: 4,
-  ["пят"]: 5,
-  ["шес"]: 6,
-  ["сед"]: 7,
-  ["вос"]: 8,
-  ["дев"]: 9,
-  ["дес"]: 10
-}
-
 const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MjQ1NTA2NywiaWF0IjoxNjUyMzY4NjU3LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNmM3OTc3YTctNTAwZC00NmZhLWI5YzctNjgyOTZmMTM1MTEzIiwic2lkIjoiYjM4YzZkM2YtMzE3YS00NzMzLWI5YTMtZWMxMzNmOTg3NWQxIn0.gBx0qO1eyZ7kIbjeGEtld8qE3dqqKUWTurqSLAEzTyuNfuZJhKYXOsvD-tQz20D445viCqPaRkwqX7JHkecjfPUq2I1gS_81n7kgjoc8pxFgOCqjmqB8p_qplsXK1QRaZr-8WnveK54-sOYD7ZFpjERNrrda10wT9Yi0LqZXfcRuwjE6QNiPjUwMKTSEjBx1ovArZ1k0o3cWR_ozySHsTYmd6xfHTHb1KwEhmZBJqutCLsHHvNY_vuZSJI7G3at8ls8Z1MupNgTfc-GmGGxy69_BAQIL9Fegg3_ukodPJGb0mJt3DQ9kybOLMDH1pa69vdtTC3FU95aVY-ij4-4YUls1hTHGSzMf2TKPzXR-eEvKBpHc_f7_02Gv-kd-Eq-ip4VSnyJerQ0ScsrTFv85GpMzwUyT8OT8RHDJnOqMxfcVfbn0VI07Oro-S4IHOEePCXLP1KqNsHk1w2R1FtYZaGpakjuiaUU6BiM6l_ufka_06DNZZf6ZVG0_O7qZ5Z44IyUtmWrVSFoIA6BJUfi4diy6isfCleTPmXBSRVNeHqpJw63MTeYTJ4kTaVQVTcKIIFvj8_iloAqsZHJVJ8VFwfkfru-l9Wj19JCbmwa0JAnEx4SUeSz67pmI406F3Ag7gaZHtSc_H9C8rSBgjUAdFOZUlo9OfNhBtZLywJDeQzo",
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1Mjg2MzUwMCwiaWF0IjoxNjUyNzc3MDkwLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiM2Q1MTYzNGUtYTJiOS00N2VjLTkwMDMtZDE3Mzg2N2Q0NDRkIiwic2lkIjoiNWQ2MDVlMjgtMzBiZC00ZDAyLTg4M2ItNmViNTQxMTExMWE0In0.Ecggr20V-jGkJLvgtUrjiWrJHODRPYaT7o1UrmYFN3zbNYoFk9Vh3VLGkY4LTassj2dHGjeVrcZ6MN3rPOS9lj_nWaRheLXYFpGtyWYRi3AyW7hwsfsdPMP6OXXLtBJmbdq21rY6GL57KpddROxzSwGBun6KzQBZXWVAVbgPVarM7C8OfTgUvYqsYCeFGLyHkN37n74glIacE-utsDD1MlLAgbXFJ2w3YlCQmaIWLlcjXr46M6c5CxqWgZBIV2Mcp1QwRTONDjP6Ug1YG4cFRLerbfmHErq3K4DJJ_M2vdzmM4WVqyjehpkvCNlIshj9kw9WITokleqs2Gk0p5ceYxRYhVKZp_URDoQYbWJ-0qUTFCZNWANa3XpZ4TDKxJ1SJJrKNycjdRkhQiJJ9l9gYj_U_bbkU1ApJ0ijKevwPWjTBYex5sZZRF1JOTBUfa3RlNGblUW6Vfph62YQLjMSlQJHoOIedlzAP3pWDVfNmgMyyiNOjVInyOPomo_EJW3LdEQfS4saGRoYTqWdkTk58SU6DdmqHetiF-I_4pf-uZDQalIIf4UtB-xUKikCAuZPZIUNV6n6Nh1Kt1MnTr--unQzkmNHKmmrnzzu4fXC1P3fyhw6TvytHPvn9x1CahNl1IlL0Bo7j7nKO2O7GfOzEGWVAb0-wz-S0xwig8qnAOg",
       initPhrase: `Запусти Счётчик очков`,
       getState,
     });
@@ -132,9 +119,8 @@ export class App extends React.Component {
     let sign = action.points > 0 ? 1 : -1;
     let arr = this.state.participants;
     let changed_id;
-    let part = map[action.participant.slice(0, 3)];
     arr.forEach(item => {
-      if (item.id + 1 === part) {
+      if (item.id + 1 === action.participant) {
         item.score += parseInt(action.points);
         changed_id = item.id;
       }
@@ -243,8 +229,9 @@ export class App extends React.Component {
 }
 
 // доделки по модерации
-
-// сложно
+// TODO Добавить поднятие списка имен. Когда их много, клавиатура закрывает нижние, и не видно, что вводишь
+// TODO сделать сообщение помощи текстом
+// TODO сократить текст на старте
 
 // Перед выкаткой
 // TODO потестить на фронте
@@ -256,18 +243,5 @@ export class App extends React.Component {
 
 
 // DONE
-// поменять возрастную категорию на 6+
-// Ассистентам Сбер и Афина характерен более деловой стиль в общении, поэтому они не могут говорить "Привет"
-// добавить интент "заново"
-// На превью смартапа не должно быть видно панели ассистента
-// На голосовой запрос вне контекста ассистент отвечает "Я не понимаю". На такие запросы ассистент должен подсказывать как вернуться к сценарию;
-
-// добавить текст с описанием смартапа при запуске
-// отправлять текст помощи из сценария на фронт
-
-// расширить список голосовых команд, которыми можно прибавлять/удалять очки у участников, чтобы пользователь мог по разному строить фразу и ассистент его понимал (добавь/прибавь/плюс)
-// заменить шаблоны на интенты в добавлении/вычитании очков
-// сделать сущность на первого/второго/...
-
-
+// TODO При попытке добавить очки голосом, ассистент отвечает, что очки добавлены, но количество очков на экране не меняется
 
