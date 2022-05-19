@@ -6,13 +6,12 @@ import {
 
 import "./App.css";
 import { ParticipantList } from './pages/ParticipantList';
-import { Help } from './components/Help';
 
 const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1Mjg2MzUwMCwiaWF0IjoxNjUyNzc3MDkwLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiM2Q1MTYzNGUtYTJiOS00N2VjLTkwMDMtZDE3Mzg2N2Q0NDRkIiwic2lkIjoiNWQ2MDVlMjgtMzBiZC00ZDAyLTg4M2ItNmViNTQxMTExMWE0In0.Ecggr20V-jGkJLvgtUrjiWrJHODRPYaT7o1UrmYFN3zbNYoFk9Vh3VLGkY4LTassj2dHGjeVrcZ6MN3rPOS9lj_nWaRheLXYFpGtyWYRi3AyW7hwsfsdPMP6OXXLtBJmbdq21rY6GL57KpddROxzSwGBun6KzQBZXWVAVbgPVarM7C8OfTgUvYqsYCeFGLyHkN37n74glIacE-utsDD1MlLAgbXFJ2w3YlCQmaIWLlcjXr46M6c5CxqWgZBIV2Mcp1QwRTONDjP6Ug1YG4cFRLerbfmHErq3K4DJJ_M2vdzmM4WVqyjehpkvCNlIshj9kw9WITokleqs2Gk0p5ceYxRYhVKZp_URDoQYbWJ-0qUTFCZNWANa3XpZ4TDKxJ1SJJrKNycjdRkhQiJJ9l9gYj_U_bbkU1ApJ0ijKevwPWjTBYex5sZZRF1JOTBUfa3RlNGblUW6Vfph62YQLjMSlQJHoOIedlzAP3pWDVfNmgMyyiNOjVInyOPomo_EJW3LdEQfS4saGRoYTqWdkTk58SU6DdmqHetiF-I_4pf-uZDQalIIf4UtB-xUKikCAuZPZIUNV6n6Nh1Kt1MnTr--unQzkmNHKmmrnzzu4fXC1P3fyhw6TvytHPvn9x1CahNl1IlL0Bo7j7nKO2O7GfOzEGWVAb0-wz-S0xwig8qnAOg",
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MzA1NzI4MywiaWF0IjoxNjUyOTcwODczLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiZDU1Mzc2NWMtMGY4Yi00MGQ0LWI1N2YtMzRkODY4NTQ5OWFjIiwic2lkIjoiMDM2OTBjODUtNzgyMS00NzUxLWFhM2QtNjNiMmRmYjliOWU2In0.iuGoXvkcRQki_7ArS70Vdn9c5kJRpMCClSWVPd4KVvG1jYAsl0dF75gR-m6xHHh2t7LezfMyBFm446o_FMvtPmDWmlvM4RGZup7LquJCfT0wI9oP4pysUIIUrq43dVXe9h9VeDOnoJmslHiqHKV4t-dhdk94clrE9vNn06uPL_yv1Dj7_Vms1oOYgHmdcijXQm-VTmQs28cJuWZxvGDgCvDL18TMlnbpjxZ0L6ndd75bDMVldLxqKEpIScN4MTmt9-UMM8SSMWndwWI4qw_bzqli0JhTqrtblHlx51D_j8j81ASVi1qfOsF6Ce6BBzyOG7KSPq8djzfTTd0edTsI0GzeaQiuoM02Eio3sGmobMr6L5Pp7FrkV3jTVeglF1_DZ62Mm_H9IApOQHRRi7oJzhr7Imzn7kAdumV0WV__H8biUnziEL11443wj7uiWVscymT6um-G3QBYCnlMQzanxGXvRWnCLrqPTARjSDPN4OS8pH-2E9jj6L-GiWIRLdTecrSL_3SSc6x92cV9Xf2FlwtecjruMSOf9YveaP7zOINE4tl9vCGdfCCGTaVRfte51QpPmFgaPyUGbYnQYOYvXcu8SUQ6NMqbNubGRc926ml3Y076H6QODcAFWGVrwwmG_CUrxb0N-VukH-KAZ2RGXL6_1SsJCOA1fWiGd4ccG5c",
       initPhrase: `Запусти Счётчик очков`,
       getState,
     });
@@ -31,7 +30,8 @@ export class App extends React.Component {
         id: -1,
         type: 0,
       },
-      help_text: ""
+      help_text: "",
+      show_help: true,
     }
 
     this.assistant = initializeAssistant(() => this.getStateForAssistant() );
@@ -90,7 +90,8 @@ export class App extends React.Component {
       return {
         participants: state.participants,
         last_update: state.last_update,
-        help_text: action.text
+        help_text: action.text,
+        show_help: state.show_help,
       }
     })
   }
@@ -110,7 +111,8 @@ export class App extends React.Component {
           id: -1,
           type: 2,
         },
-        help_text: state.help_text
+        help_text: state.help_text,
+        show_help: state.show_help,
       }
     });
   }
@@ -132,7 +134,8 @@ export class App extends React.Component {
           id: changed_id,
           type: sign,
         },
-        help_text: state.help_text
+        help_text: state.help_text,
+        show_help: state.show_help,
       }
     });
   }
@@ -154,7 +157,8 @@ export class App extends React.Component {
           id: changed_id,
           type: sign,
         },
-        help_text: state.help_text
+        help_text: state.help_text,
+        show_help: state.show_help,
       }
     });
   }
@@ -166,6 +170,7 @@ export class App extends React.Component {
       }
       let help_text = this.state.help_text;
       let part = this.state.participants;
+      let sh_help = this.state.show_help;
       return function() {
         let arr = part;
         arr.forEach(item => {
@@ -178,7 +183,8 @@ export class App extends React.Component {
             id: participant_id,
             type: x,
           },
-          help_text: help_text
+          help_text: help_text,
+          show_help: sh_help,
         })
       }
     }
@@ -191,7 +197,8 @@ export class App extends React.Component {
           return {
             participants: arr,
             last_update: state.last_update,
-            help_text: state.help_text
+            help_text: state.help_text,
+            show_help: state.show_help,
           }
         });
       }
@@ -211,27 +218,44 @@ export class App extends React.Component {
     }
   }
 
+  onClickHideHelp() {
+    let setSt = () => {
+      this.setState((state) => {
+        return {
+          participants: state.participants,
+          last_update: state.last_update,
+          help_text: state.text,
+          show_help: false,
+        }
+      })
+    }
+    return () => {
+      setSt();
+    }
+  }
+
   render() {
     console.log('render, ', this.state);
-    if (this.state.participants.length > 0)
-      return (
+    return (
+        <div>
           <ParticipantList
               items   = {this.state.participants}
               lastUpdate = {this.state.last_update}
               onClickPlus = {this.onClickAdd(1)}
               onClickMinus = {this.onClickAdd(-1)}
               onChangeName = {this.onChangeName()}
+              help_text = { this.state.help_text }
+              show_help = {this.state.show_help}
+              onClickHideHelp = {this.onClickHideHelp()}
           />
-      )
-
-    return <Help text = {this.state.help_text} />
+        </div>
+    )
   }
 }
 
 // доделки по модерации
-// TODO Добавить поднятие списка имен. Когда их много, клавиатура закрывает нижние, и не видно, что вводишь
-// TODO сделать сообщение помощи текстом
-// TODO сократить текст на старте
+// TODO сделать кнопку помощи
+// TODO сделать возможность открывать/закрывать помощь голосом
 
 // Перед выкаткой
 // TODO потестить на фронте
@@ -244,4 +268,9 @@ export class App extends React.Component {
 
 // DONE
 // TODO При попытке добавить очки голосом, ассистент отвечает, что очки добавлены, но количество очков на экране не меняется
+// TODO Добавить поднятие списка имен. Когда их много, клавиатура закрывает нижние, и не видно, что вводишь
+// TODO сократить текст на старте
+// TODO сделать блок помощи
+// TODO сделать возможность закрывать помощь по кнопке
+
 

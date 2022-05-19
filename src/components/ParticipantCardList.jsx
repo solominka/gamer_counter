@@ -2,6 +2,7 @@ import React from "react";
 
 import {ParticipantCard} from './ParticipantCard';
 import "../App.css";
+import {Help} from "./Help";
 
 let x = 0;
 
@@ -137,23 +138,44 @@ export class ParticipantCardList extends React.Component {
     console.log("render", this.props.items);
     if (this.props.items === undefined)
       return "";
-
-    return (
-        <div id = "cards_container" className="cards">
-          {
-            this.props.items.map((item, index) => (
-                <ParticipantCard
-                    index           = { index }
-                    participantId   = { item.id }
-                    name            = { item.name }
-                    score           = { item.score }
-                    onClickPlus     = { this.props.onClickPlus(item.id) }
-                    onClickMinus    = { this.props.onClickMinus(item.id) }
-                    onChangeName    = { this.props.onChangeName(item.id) }
-                />
-            ))
-          }
-        </div>
-    )
+    if (this.props.show_help) {
+      return (
+          <div id = "cards_container" className="cards">
+            <Help text={this.props.help_text} onClick = { this.props.onClickHideHelp }/>
+            {
+              this.props.items.map((item, index) => (
+                  <ParticipantCard
+                      index           = { index }
+                      participantId   = { item.id }
+                      name            = { item.name }
+                      score           = { item.score }
+                      onClickPlus     = { this.props.onClickPlus(item.id) }
+                      onClickMinus    = { this.props.onClickMinus(item.id) }
+                      onChangeName    = { this.props.onChangeName(item.id) }
+                  />
+              ))
+            }
+          </div>
+      )
+    } else {
+      return (
+          <div id = "cards_container" className="cards">
+            {
+              this.props.items.map((item, index) => (
+                  <ParticipantCard
+                      index           = { index }
+                      participantId   = { item.id }
+                      name            = { item.name }
+                      score           = { item.score }
+                      onClickPlus     = { this.props.onClickPlus(item.id) }
+                      onClickMinus    = { this.props.onClickMinus(item.id) }
+                      onChangeName    = { this.props.onChangeName(item.id) }
+                      onClick         = { this.props.onClickHideHelp }
+                  />
+              ))
+            }
+          </div>
+      )
+    }
   }
 }
