@@ -78,11 +78,22 @@ export class App extends React.Component {
         case 'get_help':
           return this.helpText(action);
         case "show_help":
-          return this.show_help();
+          return this.show_help(action.show);
         default:
           throw new Error();
       }
     }
+  }
+
+  show_help(flag) {
+    this.setState((state) => {
+      return {
+        participants: state.participants,
+        last_update: state.last_update,
+        help_text: state.text,
+        show_help: flag,
+      }
+    })
   }
 
   helpText(action) {
@@ -255,7 +266,6 @@ export class App extends React.Component {
 }
 
 // доделки по модерации
-// TODO сделать возможность открывать/закрывать помощь голосом
 
 // Перед выкаткой
 // TODO потестить на фронте
@@ -273,6 +283,8 @@ export class App extends React.Component {
 // TODO сделать блок помощи
 // TODO сделать возможность закрывать помощь по кнопке
 // TODO сделать кнопку помощи
+// TODO сделать возможность открывать/закрывать помощь голосом
+
 
 
 
