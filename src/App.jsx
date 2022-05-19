@@ -218,14 +218,14 @@ export class App extends React.Component {
     }
   }
 
-  onClickHideHelp() {
+  onClickShowHelp(flag) {
     let setSt = () => {
       this.setState((state) => {
         return {
           participants: state.participants,
           last_update: state.last_update,
           help_text: state.text,
-          show_help: false,
+          show_help: flag,
         }
       })
     }
@@ -246,7 +246,8 @@ export class App extends React.Component {
               onChangeName = {this.onChangeName()}
               help_text = { this.state.help_text }
               show_help = {this.state.show_help}
-              onClickHideHelp = {this.onClickHideHelp()}
+              onClickHideHelp = {this.onClickShowHelp(false)}
+              onClickShowHelp = {this.onClickShowHelp(true)}
           />
         </div>
     )
@@ -254,7 +255,6 @@ export class App extends React.Component {
 }
 
 // доделки по модерации
-// TODO сделать кнопку помощи
 // TODO сделать возможность открывать/закрывать помощь голосом
 
 // Перед выкаткой
@@ -272,5 +272,7 @@ export class App extends React.Component {
 // TODO сократить текст на старте
 // TODO сделать блок помощи
 // TODO сделать возможность закрывать помощь по кнопке
+// TODO сделать кнопку помощи
+
 
 

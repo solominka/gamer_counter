@@ -25,7 +25,7 @@ body {
 
 .ParticipantCardSmall, .ParticipantNameSmall, .button_small {
   background-color: rgba(255, 255, 255, 0.24);
-  padding: 14px 8px;
+  padding: 14px 10px;
   font-weight: 350;
   font-style: normal;
   font-size: 20px;
@@ -36,6 +36,8 @@ body {
   margin: 3% 0 20%;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .ParticipantCardBig, .ParticipantCardSmall {

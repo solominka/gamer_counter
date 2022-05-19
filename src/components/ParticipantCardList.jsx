@@ -5,6 +5,7 @@ import "../App.css";
 import {Help} from "./Help";
 
 let x = 0;
+let help_text = "";
 
 export class ParticipantCardList extends React.Component {
   constructor(props) {
@@ -139,9 +140,10 @@ export class ParticipantCardList extends React.Component {
     if (this.props.items === undefined)
       return "";
     if (this.props.show_help) {
+      help_text = this.props.help_text || help_text;
       return (
           <div id = "cards_container" className="cards">
-            <Help text={this.props.help_text} onClick = { this.props.onClickHideHelp }/>
+            <Help text={help_text} onClick = { this.props.onClickHideHelp }/>
             {
               this.props.items.map((item, index) => (
                   <ParticipantCard
@@ -160,6 +162,11 @@ export class ParticipantCardList extends React.Component {
     } else {
       return (
           <div id = "cards_container" className="cards">
+            <button
+                className = {window.innerWidth > 650 ? "button_exit_big" : "button_exit_small"}
+                onClick = {this.props.onClickShowHelp}
+                style = {{marginBottom: "3%", backgroundColor: "rgba(255, 255, 255, 0.35)", padding: "3%"}}
+            >Помощь</button>
             {
               this.props.items.map((item, index) => (
                   <ParticipantCard
