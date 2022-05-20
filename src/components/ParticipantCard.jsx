@@ -31,7 +31,7 @@ export const ParticipantCard = (props) => {
                       top: document.getElementById("name"+index).style.top,
                       behavior: 'smooth'
                   });
-                  document.getElementById("name"+index).scrollIntoView({block: 'nearest'});
+                  // document.getElementById("name"+index).scrollIntoView({block: 'nearest'});
               }}
               onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
               placeholder={placeholder}
