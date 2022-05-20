@@ -2,8 +2,10 @@ import React from "react";
 
 import "../App.css";
 import { PlusButton, MinusButton } from "./Buttons";
+import smoothscroll from 'smoothscroll-polyfill';
 
 export const ParticipantCard = (props) => {
+  smoothscroll.polyfill();
   let { index, participantId, name, score, onClickPlus, onClickMinus, onChangeName } = props;
   let f = () => {
       let input = document.getElementById("name"+index);
@@ -25,7 +27,7 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={() => {
                   placeholder = "";
-                  document.getElementById("name"+index).scrollIntoView();
+                  document.getElementById("name"+index).scrollIntoView({block: 'nearest'});
               }}
               onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
               placeholder={placeholder}
