@@ -32,12 +32,16 @@ body {
   color: #ffffff;
 }
 
-.cards {
+.cards, .cards_small {
   margin: 3% 0 40%;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
+}
+
+.cards_small {
+  margin-bottom: 100%;
 }
 
 .ParticipantCardBig, .ParticipantCardSmall {
