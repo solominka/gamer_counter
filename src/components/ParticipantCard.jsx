@@ -28,7 +28,7 @@ export const ParticipantCard = (props) => {
               onFocus={() => {
                   placeholder = "";
                   window.scrollTo(0, document.getElementById("name"+index).getBoundingClientRect().top);
-                  document.getElementById("name"+index).scrollIntoView();
+                  // document.getElementById("name"+index).scrollIntoView();
                   // document.getElementById("name"+index).scrollIntoView({block: 'nearest'});
               }}
               onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
@@ -46,3 +46,14 @@ export const ParticipantCard = (props) => {
       </div>
   )
 }
+
+function findPos(obj) {
+    let curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+        return [curtop];
+    }
+}
+
