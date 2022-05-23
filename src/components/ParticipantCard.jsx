@@ -27,7 +27,7 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={() => {
                   placeholder = "";
-                  window.scroll(0,findPos(document.getElementById("name"+index)));
+                  window.scrollTo(0,findPos(document.getElementById("name"+index)));
                   // window.scrollTo(0, document.getElementById("name"+index).getBoundingClientRect().top);
                   // document.getElementById("name"+index).scrollIntoView();
               }}
