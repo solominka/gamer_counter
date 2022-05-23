@@ -27,8 +27,8 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={() => {
                   placeholder = "";
-                  document.getElementById(index).scrollIntoView(true);
-                  window.scroll(0, 15);
+                  // document.getElementById(index).scrollIntoView(true);
+                  window.scroll(0, 1500);
               }}
               onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
               placeholder={placeholder}
