@@ -24,13 +24,14 @@ export const ParticipantCard = (props) => {
           <input
               id={"name"+index}
               onFocus={() => {
-                  document.getElementById(index).style.marginBottom = "500%";
                   placeholder = "";
+                  document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
+                  document.getElementById("cards_container").style.marginBottom = "400%";
               }}
               onBlur={() => {
                   f();
                   placeholder = "Участник " + (participantId+1);
-                  document.getElementById(index).style.marginBottom = "3%";
+                  document.getElementById("cards_container").style.marginBottom = "100%";
               }}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
