@@ -33,6 +33,8 @@ body {
 }
 
 .cards, .cards_small {
+  height: 100%;
+  overflow: auto;
   margin: 3% 0 40%;
   padding: 0;
   list-style: none;
