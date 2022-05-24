@@ -142,7 +142,7 @@ export class ParticipantCardList extends React.Component {
     if (this.props.show_help) {
       help_text = this.props.help_text || help_text;
       return (
-          <div id = "cards_container" className="cards">
+          <div id = "cards_container" className={window.innerWidth > 650 ? "cards" : "cards_small"}>
             <Help text={help_text} onClick = { this.props.onClickHideHelp }/>
             {
               this.props.items.map((item, index) => (
@@ -161,7 +161,7 @@ export class ParticipantCardList extends React.Component {
       )
     } else {
       return (
-          <div id = "cards_container" className="cards">
+          <div id = "cards_container" className={window.innerWidth > 650 ? "cards" : "cards_small"}>
             <button
                 className = {window.innerWidth > 650 ? "button_exit_big" : "button_exit_small"}
                 onClick = {this.props.onClickShowHelp}

@@ -32,12 +32,18 @@ body {
   color: #ffffff;
 }
 
-.cards {
-  margin: 3% 0 20%;
+.cards, .cards_small {
+  height: 100%;
+  overflow: auto;
+  margin: 3% 0 40%;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
+}
+
+.cards_small {
+  margin-bottom: 160%;
 }
 
 .ParticipantCardBig, .ParticipantCardSmall {
