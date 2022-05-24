@@ -25,8 +25,8 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={() => {
                   placeholder = "";
-                  document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
                   document.getElementById("cards_container").style.marginBottom = "400%";
+                  document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
               }}
               onBlur={() => {
                   f();
