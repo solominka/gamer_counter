@@ -25,13 +25,17 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={() => {
                   placeholder = "";
-                  document.getElementById("cards_container").style.marginBottom = "400%";
-                  document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
+                  if (window.innerWidth < 600) {
+                      let y = document.getElementById(participantId).getBoundingClientRect().height;
+                      document.getElementById("cards_container").style.marginBottom = y*index + "px";
+                      document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
+                  }
               }}
               onBlur={() => {
                   f();
                   placeholder = "Участник " + (participantId+1);
-                  document.getElementById("cards_container").style.marginBottom = "100%";
+                  if (window.innerWidth < 600)
+                      document.getElementById("cards_container").style.marginBottom = "160%";
               }}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
