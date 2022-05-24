@@ -11,7 +11,7 @@ const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MzA1NzI4MywiaWF0IjoxNjUyOTcwODczLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiZDU1Mzc2NWMtMGY4Yi00MGQ0LWI1N2YtMzRkODY4NTQ5OWFjIiwic2lkIjoiMDM2OTBjODUtNzgyMS00NzUxLWFhM2QtNjNiMmRmYjliOWU2In0.iuGoXvkcRQki_7ArS70Vdn9c5kJRpMCClSWVPd4KVvG1jYAsl0dF75gR-m6xHHh2t7LezfMyBFm446o_FMvtPmDWmlvM4RGZup7LquJCfT0wI9oP4pysUIIUrq43dVXe9h9VeDOnoJmslHiqHKV4t-dhdk94clrE9vNn06uPL_yv1Dj7_Vms1oOYgHmdcijXQm-VTmQs28cJuWZxvGDgCvDL18TMlnbpjxZ0L6ndd75bDMVldLxqKEpIScN4MTmt9-UMM8SSMWndwWI4qw_bzqli0JhTqrtblHlx51D_j8j81ASVi1qfOsF6Ce6BBzyOG7KSPq8djzfTTd0edTsI0GzeaQiuoM02Eio3sGmobMr6L5Pp7FrkV3jTVeglF1_DZ62Mm_H9IApOQHRRi7oJzhr7Imzn7kAdumV0WV__H8biUnziEL11443wj7uiWVscymT6um-G3QBYCnlMQzanxGXvRWnCLrqPTARjSDPN4OS8pH-2E9jj6L-GiWIRLdTecrSL_3SSc6x92cV9Xf2FlwtecjruMSOf9YveaP7zOINE4tl9vCGdfCCGTaVRfte51QpPmFgaPyUGbYnQYOYvXcu8SUQ6NMqbNubGRc926ml3Y076H6QODcAFWGVrwwmG_CUrxb0N-VukH-KAZ2RGXL6_1SsJCOA1fWiGd4ccG5c",
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MzQ4MzQ0NCwiaWF0IjoxNjUzMzk3MDM0LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiMjRlOGE5ODMtYmY5Yi00YzM1LTk0MjgtNTI0MTkzNWJkZDE2Iiwic2lkIjoiZTZlMzQ4MzEtM2E4Ni00M2E0LWE0OTgtMjY4MjBhYzY3YThhIn0.hzMMpwr4vCXYIwl82wSfX3CKtEztwzIRiFmtm1aCWAANuaNfa3QPS-MwWOOsBHyJDBh4_xnoSftMQiDedU26WhUrNMsPG4DS9IeL7i_AE8X1btPF2U0VfKwMGlTukU_h5b059MSW1d7pNUtemLd98LwkJGxpHzVr-ULqg9sKbhXB2kzTevXSuu0MkEA_UXLTLQQ9wKg4wArEvYCNJDBBWJh7limIFiGozfhL_cCmC-m2erFh5Xq1toWbLKdXdm0aYWGK1UgVweVXeeOQHBorim7ngLrQZhZEVogDJVC9uAZUzBXjSNVhU8KV17aRYBPO3tzsEHTAciMqkaHDWX9gGAR5eCQqJt5KcRQ4DoBIMRaGRbL2c0KGs4XZDxZaBlzuTSBNNZA0BoqWiF2ywoqwPkT2gC0JhlqMeSvVGEkSayX62A-SGvpxLkPdLIeM99KM4HCvQ89f2R4R0RxY5c5ce4ju4XqMXSIO9MbPeXtLN_rMnzzwjur16WdQCzFkOJ8srv7IzM3X1pnOOZaykQxmJlwLLwjOf_qhhCupFspNBftQH5UD3dGgdE__8L7Dy4D9f8b72-rHupHdJ5IO1VC2xKjFlCmQ1ssXDyjRRg3UPYuLCJuaqfEkosfYNPMXY-1kGaULSjx6S5F5CHEU3RI6FfwhuiLBYl_lMx77hSUYazc",
       initPhrase: `Запусти Счётчик очков`,
       getState,
     });
@@ -264,21 +264,3 @@ export class App extends React.Component {
     )
   }
 }
-
-// доделки по модерации
-// Салют (андроид): При вводе имени, клавиатура перекрывает поле ввода у участников, которые находятся внизу экрана
-
-// Перед выкаткой
-// TODO потестить на фронте
-// TODO выключить возможность запуска на сбербокс
-// TODO билд на хостинге
-
-// После публикации
-// TODO можно получить сбербокс(?) https://developers.sber.ru/portal/virtual-assistants-salute/sberbox-smartapp
-
-
-// DONE
-// Саджест и кнопка "помощь" дублируют себя. Необходимо убрать саджест, т.к есть кнопка помощь и
-// привязать голосовые команды по которым этот раздел будет открываться;
-// Добавьте в раздел "помощь" фразу: "чтобы начать игру, назови(те) число игроков..."
-// На первом превью для Салюта в левом нижнем углу видна синяя полоса;

@@ -50,7 +50,7 @@ body {
 }
 
 .ParticipantNameBig, .ParticipantNameSmall {
-  width: 60%;
+  width: fit-content;
   background-color: transparent;
   border: solid transparent 3px;
   border-radius: 24px;
