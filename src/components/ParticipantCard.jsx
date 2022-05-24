@@ -23,11 +23,14 @@ export const ParticipantCard = (props) => {
       >
           <input
               id={"name"+index}
-              onFocus={() => {placeholder = "";}}
+              onFocus={() => {
+                  document.getElementById(index).style.marginBottom = "500%";
+                  placeholder = "";
+              }}
               onBlur={() => {
                   f();
                   placeholder = "Участник " + (participantId+1);
-                  // document.getElementById(index).style.position = 'relative';
+                  document.getElementById(index).style.marginBottom = "3%";
               }}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
