@@ -2,10 +2,8 @@ import React from "react";
 
 import "../App.css";
 import { PlusButton, MinusButton } from "./Buttons";
-import smoothscroll from 'smoothscroll-polyfill';
 
 export const ParticipantCard = (props) => {
-  smoothscroll.polyfill();
   let { index, participantId, name, score, onClickPlus, onClickMinus, onChangeName } = props;
   let f = () => {
       let input = document.getElementById("name"+index);
@@ -27,10 +25,18 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={() => {
                   placeholder = "";
-                  // document.getElementById(index).scrollIntoView(true);
-                  window.scroll(0, 1);
+                  /*if (window.innerWidth > 500) {
+                      let el = document.getElementById(index);
+                      el.style.position = 'absolute';
+                      el.style.marginBottom = el.getBoundingClientRect().height;
+                      el.scrollIntoView(true);
+                  }*/
               }}
-              onBlur={() => {f(); placeholder = "Участник " + (participantId+1);}}
+              onBlur={() => {
+                  f();
+                  placeholder = "Участник " + (participantId+1);
+                  document.getElementById(index).style.position = 'relative';
+              }}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
           />
@@ -45,14 +51,3 @@ export const ParticipantCard = (props) => {
       </div>
   )
 }
-
-function findPos(obj) {
-    let curtop = 0;
-    if (obj.offsetParent) {
-        do {
-            curtop += obj.offsetTop;
-        } while (obj = obj.offsetParent);
-        return [curtop];
-    }
-}
-
