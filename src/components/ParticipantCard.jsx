@@ -28,7 +28,7 @@ export const ParticipantCard = (props) => {
                   if (window.innerWidth < 600) {
                       let y = document.getElementById(participantId).getBoundingClientRect().height;
                       document.getElementById("cards_container").style.marginBottom = y*index + "px";
-                      document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
+                      document.getElementById(participantId).scrollIntoView(true);
                   }
               }}
               onBlur={() => {
