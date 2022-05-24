@@ -37,7 +37,6 @@ export const ParticipantCard = (props) => {
                   if (window.innerWidth < 600)
                       document.getElementById("cards_container").style.marginBottom = "160%";
               }}
-              onKeyPress="this.style.width = ((this.value.length + 1)) + 'px';"
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
           />
