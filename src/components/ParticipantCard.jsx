@@ -25,12 +25,7 @@ export const ParticipantCard = (props) => {
               id={"name"+index}
               onFocus={(e) => {
                   placeholder = "";
-                  if (window.innerWidth < 600) {
-                      setTimeout(() => {
-                          window.scrollTo(0,findPos(document.getElementById(participantId), place, help));
-                          }, 100)
-                      // document.getElementById(participantId).scrollIntoView({block: "center", behavior: "smooth"});
-                  }
+                  document.getElementById(participantId).scrollIntoView(true);
               }}
               onBlur={() => {
                   f();
@@ -52,6 +47,8 @@ export const ParticipantCard = (props) => {
 }
 
 function findPos(el, i, help) {
-    return (i+1) * (el.offsetHeight + el.style.marginBottom)
-        + help ? document.getElementById("help").offsetHeight : 0;
+    let ans = (i+1) * (el.offsetHeight + el.style.marginBottom);
+    if (document.getElementById("help"))
+        ans += document.getElementById("help").offsetHeight;
+    return ans;
 }
