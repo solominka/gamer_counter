@@ -11,7 +11,7 @@ const initializeAssistant = (getState) => {
   if (process.env.NODE_ENV === "development") {
     // console.log('initializeAssistant');
     return createSmartappDebugger({
-      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MzQ4MzQ0NCwiaWF0IjoxNjUzMzk3MDM0LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiMjRlOGE5ODMtYmY5Yi00YzM1LTk0MjgtNTI0MTkzNWJkZDE2Iiwic2lkIjoiZTZlMzQ4MzEtM2E4Ni00M2E0LWE0OTgtMjY4MjBhYzY3YThhIn0.hzMMpwr4vCXYIwl82wSfX3CKtEztwzIRiFmtm1aCWAANuaNfa3QPS-MwWOOsBHyJDBh4_xnoSftMQiDedU26WhUrNMsPG4DS9IeL7i_AE8X1btPF2U0VfKwMGlTukU_h5b059MSW1d7pNUtemLd98LwkJGxpHzVr-ULqg9sKbhXB2kzTevXSuu0MkEA_UXLTLQQ9wKg4wArEvYCNJDBBWJh7limIFiGozfhL_cCmC-m2erFh5Xq1toWbLKdXdm0aYWGK1UgVweVXeeOQHBorim7ngLrQZhZEVogDJVC9uAZUzBXjSNVhU8KV17aRYBPO3tzsEHTAciMqkaHDWX9gGAR5eCQqJt5KcRQ4DoBIMRaGRbL2c0KGs4XZDxZaBlzuTSBNNZA0BoqWiF2ywoqwPkT2gC0JhlqMeSvVGEkSayX62A-SGvpxLkPdLIeM99KM4HCvQ89f2R4R0RxY5c5ce4ju4XqMXSIO9MbPeXtLN_rMnzzwjur16WdQCzFkOJ8srv7IzM3X1pnOOZaykQxmJlwLLwjOf_qhhCupFspNBftQH5UD3dGgdE__8L7Dy4D9f8b72-rHupHdJ5IO1VC2xKjFlCmQ1ssXDyjRRg3UPYuLCJuaqfEkosfYNPMXY-1kGaULSjx6S5F5CHEU3RI6FfwhuiLBYl_lMx77hSUYazc",
+      token: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0ZWQxZDJlODc4YTI3MWUyM2JmYTMzZGFlODc3MmZlNDRmYzU1YmUwN2U4ODhmNTllZmE2MTFiM2I5NGZmMTRmOGUzMzUwNjk0MTAxYmRkNCIsImF1ZCI6IlZQUyIsImV4cCI6MTY1MzU1MjA0OSwiaWF0IjoxNjUzNDY1NjM5LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiYTMwMDRjYzMtNmYxZS00ZjYzLTljMDEtZTc2OWJlZWJhMDAyIiwic2lkIjoiZjNiNzIyZTQtYTdjZS00MzdjLWI4MDUtMjQwYjAzZGIwODM5In0.SAD4w1y_vJiHky58qrNK5UcaAQPMjBxWObxbFMmTdxYADvjfYCrIe7m3WwC7s2c6LGldy6HysXhbGAODbLj6DbrO25OAzEOM1VgmN9aOfBcFOPTjRnCLMIW6rKC039fCxYVzskDm_yy5jU9GfsKju7fswmT_bhRv963K6-MxF1RCZR6IsBXzf-WLsnE1vEDgVWRml2-MtohhLpU6jzwpk_QUL9uGF-qkC4s3uLJkb4CrHmz8jBocfflYBkLY0LeWUv1smxiIuwv6UhdNgzOQ7FmMFkkB3YYuK19UaWSc_mYbQ_QI5mou7jJWZXrqRn0uU6yCBZZDWjEEhsAxH-fUkMg7Ro_4GCKHsmkTxggLcfEz3n0hNXgjBykWNOaPrA48_qxDA0CK5Cz5A3swf5NlYKq3pU1NBS435Wi1NnNfUKCRTGhEkYXeqZhomKvmKqxi3pxM01gdEukyUpmc-XvZnnm3ryA03IlwWCSfWTzKuo2GeFagfgFfg-Z8owv4IU-RH_T_3EhxitbiYsfg1d3wya3nu4R7eBoOHI__QiFN7IP1VKoEhfAVn9kEGGWJCdS_UFTxBiqb278e1a8plUfhKGzBU7eUOl1JrLj-YHQa3dI_PRuuivQ3p8JtXtPSHyg_UCiPfWhA2L5JZ03UGsy7vW5bUb3dND_YlGbVfsBl7Ok",
       initPhrase: `Запусти Счётчик очков`,
       getState,
     });
@@ -79,10 +79,58 @@ export class App extends React.Component {
           return this.helpText(action);
         case "show_help":
           return this.show_help(action.show);
+        case "null_points":
+          return this.null_points(action);
+        case "null_points_by_name":
+          return this.null_points_by_name(action);
         default:
           throw new Error();
       }
     }
+  }
+
+  null_points(action) {
+    let arr = this.state.participants;
+    let changed_id;
+    arr.forEach(item => {
+      if (item.id + 1 === action.participant) {
+        item.score = 0;
+        changed_id = item.id;
+      }
+    })
+    this.setState((state) => {
+      return {
+        participants: arr,
+        last_update: {
+          id: changed_id,
+          type: -1,
+        },
+        help_text: state.help_text,
+        show_help: state.show_help,
+      }
+    });
+  }
+
+  null_points_by_name(action) {
+    let arr = this.state.participants;
+    let changed_id;
+    arr.forEach(item => {
+      if (item.name.trim().toLowerCase() === action.name.trim().toLowerCase()) {
+        item.score = 0;
+        changed_id = item.id;
+      }
+    })
+    this.setState((state) => {
+      return {
+        participants: arr,
+        last_update: {
+          id: changed_id,
+          type: -1,
+        },
+        help_text: state.help_text,
+        show_help: state.show_help,
+      }
+    });
   }
 
   show_help(flag) {
@@ -246,7 +294,6 @@ export class App extends React.Component {
   }
 
   render() {
-    console.log('render, ', this.state);
     return (
         <div>
           <ParticipantList

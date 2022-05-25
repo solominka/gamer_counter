@@ -136,7 +136,6 @@ export class ParticipantCardList extends React.Component {
 
 
   render() {
-    console.log("render", this.props.items);
     if (this.props.items === undefined)
       return "";
     if (this.props.show_help) {
