@@ -4,7 +4,7 @@ import "../App.css";
 import { PlusButton, MinusButton } from "./Buttons";
 
 export const ParticipantCard = (props) => {
-  let { index, participantId, name, score, place, onClickPlus, onClickMinus, onChangeName } = props;
+  let { index, participantId, name, score, place, onClickPlus, onClickMinus, onChangeName, help } = props;
   let f = () => {
       let input = document.getElementById("name"+index);
       if (input !== null && input.value.length > 0) {
@@ -26,8 +26,9 @@ export const ParticipantCard = (props) => {
               onFocus={(e) => {
                   placeholder = "";
                   if (window.innerWidth < 600) {
-                      e.preventDefault();
-                      window.scrollTo(0,findPos(document.getElementById(participantId), place));
+                      setTimeout(() => {
+                          window.scrollTo(0,findPos(document.getElementById(participantId), place, help));
+                          }, 100)
                       // document.getElementById(participantId).scrollIntoView({block: "center", behavior: "smooth"});
                   }
               }}
@@ -50,6 +51,7 @@ export const ParticipantCard = (props) => {
   )
 }
 
-function findPos(el, i) {
-    return (i+1) * (el.offsetHeight + el.style.marginBottom);
+function findPos(el, i, help) {
+    return (i+1) * (el.offsetHeight + el.style.marginBottom)
+        + help ? document.getElementById("help").offsetHeight : 0;
 }

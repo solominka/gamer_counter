@@ -154,6 +154,7 @@ export class ParticipantCardList extends React.Component {
                       onClickPlus     = { this.props.onClickPlus(item.id) }
                       onClickMinus    = { this.props.onClickMinus(item.id) }
                       onChangeName    = { this.props.onChangeName(item.id) }
+                      help            = { true }
                   />
               ))
             }
@@ -179,6 +180,7 @@ export class ParticipantCardList extends React.Component {
                       onClickMinus    = { this.props.onClickMinus(item.id) }
                       onChangeName    = { this.props.onChangeName(item.id) }
                       onClick         = { this.props.onClickHideHelp }
+                      help            = { false }
                   />
               ))
             }
