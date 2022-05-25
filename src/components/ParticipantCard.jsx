@@ -26,16 +26,12 @@ export const ParticipantCard = (props) => {
               onFocus={() => {
                   placeholder = "";
                   if (window.innerWidth < 600) {
-                      let y = document.getElementById(participantId).getBoundingClientRect().height;
-                      document.getElementById("cards_container").style.marginBottom = y*index + "px";
-                      document.getElementById(participantId).scrollIntoView(true);
+                      document.getElementById(participantId).scrollIntoView({block: "start", behavior: "smooth"});
                   }
               }}
               onBlur={() => {
                   f();
                   placeholder = "Участник " + (participantId+1);
-                  if (window.innerWidth < 600)
-                      document.getElementById("cards_container").style.marginBottom = "160%";
               }}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
