@@ -23,11 +23,11 @@ export const ParticipantCard = (props) => {
       >
           <input
               id={"name"+index}
-              onFocus={() => {
+              onFocus={(e) => {
                   placeholder = "";
                   if (window.innerWidth < 600) {
+                      e.preventDefault();
                       window.scrollTo(0,findPos(document.getElementById(participantId), place));
-
                       // document.getElementById(participantId).scrollIntoView({block: "center", behavior: "smooth"});
                   }
               }}
