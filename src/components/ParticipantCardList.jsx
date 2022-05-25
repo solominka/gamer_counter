@@ -150,6 +150,7 @@ export class ParticipantCardList extends React.Component {
                       participantId   = { item.id }
                       name            = { item.name }
                       score           = { item.score }
+                      place           = { this.state.places[item.id] }
                       onClickPlus     = { this.props.onClickPlus(item.id) }
                       onClickMinus    = { this.props.onClickMinus(item.id) }
                       onChangeName    = { this.props.onChangeName(item.id) }
@@ -173,6 +174,7 @@ export class ParticipantCardList extends React.Component {
                       participantId   = { item.id }
                       name            = { item.name }
                       score           = { item.score }
+                      place           = { this.state.places[item.id] }
                       onClickPlus     = { this.props.onClickPlus(item.id) }
                       onClickMinus    = { this.props.onClickMinus(item.id) }
                       onChangeName    = { this.props.onChangeName(item.id) }
