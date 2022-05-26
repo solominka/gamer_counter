@@ -31,6 +31,7 @@ export const ParticipantCard = (props) => {
                   f();
                   placeholder = "Участник " + (participantId+1);
               }}
+              onChange={f}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
           />
