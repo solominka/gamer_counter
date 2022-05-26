@@ -92,8 +92,10 @@ export class App extends React.Component {
   null_points(action) {
     let arr = this.state.participants;
     let changed_id;
+    let prev_score;
     arr.forEach(item => {
       if (item.id + 1 === action.participant) {
+        prev_score = item.score;
         item.score = 0;
         changed_id = item.id;
       }
@@ -103,7 +105,7 @@ export class App extends React.Component {
         participants: arr,
         last_update: {
           id: changed_id,
-          type: -1,
+          type: prev_score > 0 ? -1 : +1,
         },
         help_text: state.help_text,
         show_help: state.show_help,
@@ -114,8 +116,10 @@ export class App extends React.Component {
   null_points_by_name(action) {
     let arr = this.state.participants;
     let changed_id;
+    let prev_score;
     arr.forEach(item => {
       if (item.name.trim().toLowerCase() === action.name.trim().toLowerCase()) {
+        prev_score = item.score;
         item.score = 0;
         changed_id = item.id;
       }
@@ -125,7 +129,7 @@ export class App extends React.Component {
         participants: arr,
         last_update: {
           id: changed_id,
-          type: -1,
+          type: prev_score > 0 ? -1 : +1,
         },
         help_text: state.help_text,
         show_help: state.show_help,
@@ -250,6 +254,8 @@ export class App extends React.Component {
   }
 
   onChangeName() {
+    let ass = this.assistant;
+    let st = this.state;
     return (participant_id) => {
       let setSt = (arr) => {
         this.setState((state) => {
@@ -272,6 +278,8 @@ export class App extends React.Component {
               item.name = name;
           })
           setSt(arr);
+          st.participants = arr;
+          ass.sendData({ action: { type: 'set_state', payload: { items: arr } } })
         }
       }
     }

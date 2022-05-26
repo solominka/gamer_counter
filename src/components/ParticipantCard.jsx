@@ -31,7 +31,6 @@ export const ParticipantCard = (props) => {
                   f();
                   placeholder = "Участник " + (participantId+1);
               }}
-              onChange={f}
               placeholder={placeholder}
               className = {window.innerWidth > 650 ? "ParticipantNameBig" : "ParticipantNameSmall"}
           />
@@ -45,11 +44,4 @@ export const ParticipantCard = (props) => {
           </span>
       </div>
   )
-}
-
-function findPos(el, i, help) {
-    let ans = (i+1) * (el.offsetHeight + el.style.marginBottom);
-    if (document.getElementById("help"))
-        ans += document.getElementById("help").offsetHeight;
-    return ans;
 }
